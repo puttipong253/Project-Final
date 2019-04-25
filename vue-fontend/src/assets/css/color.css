@@ -1,0 +1,487 @@
+.wh {
+  color: white !important;
+}
+
+.bl {
+  color: black !important;
+}
+.null-shadow{
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75)!important;
+}
+.navbar-short {
+  background-image: linear-gradient(
+    to right top,
+    #41433e,
+    #4a4c47,
+    #545651,
+    #5e5f5a,
+    #686964
+  ) !important;
+}
+
+.ltr{
+    background-color: transparent!important;
+}
+.lnot {
+  border: none !important;
+  background: rgba(247, 52, 140, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(247, 52, 140, 1)),
+    color-stop(100%, rgba(230, 68, 53, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f7348c', endColorstr='#e64435', GradientType=1) !important;
+}
+
+.ldeep {
+  border: none !important;
+  background: rgba(132, 0, 184, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(132, 0, 184, 1) 0,
+    rgba(38, 179, 255, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(132, 0, 184, 1)),
+    color-stop(100%, rgba(38, 179, 255, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(132, 0, 184, 1) 0,
+    rgba(38, 179, 255, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(132, 0, 184, 1) 0,
+    rgba(38, 179, 255, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(132, 0, 184, 1) 0,
+    rgba(38, 179, 255, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(132, 0, 184, 1) 0,
+    rgba(38, 179, 255, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#8400b8', endColorstr='#26b3ff', GradientType=1) !important;
+}
+
+.lsea {
+  border: none !important;
+  background: rgba(0, 184, 169, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(0, 184, 169, 1) 0,
+    rgba(54, 188, 255, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(0, 184, 169, 1)),
+    color-stop(100%, rgba(54, 188, 255, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(0, 184, 169, 1) 0,
+    rgba(54, 188, 255, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(0, 184, 169, 1) 0,
+    rgba(54, 188, 255, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(0, 184, 169, 1) 0,
+    rgba(54, 188, 255, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(0, 184, 169, 1) 0,
+    rgba(54, 188, 255, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00b8a9', endColorstr='#36bcff', GradientType=1) !important;
+}
+
+.lblue {
+  border: none !important;
+  background: rgba(73, 155, 234, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(73, 155, 234, 1) 0,
+    rgba(32, 124, 229, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(73, 155, 234, 1)),
+    color-stop(100%, rgba(32, 124, 229, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(73, 155, 234, 1) 0,
+    rgba(32, 124, 229, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(73, 155, 234, 1) 0,
+    rgba(32, 124, 229, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(73, 155, 234, 1) 0,
+    rgba(32, 124, 229, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(73, 155, 234, 1) 0,
+    rgba(32, 124, 229, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#499bea', endColorstr='#207ce5', GradientType=1) !important;
+}
+
+.lok {
+  border: none !important;
+  background: rgba(75, 232, 143, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(75, 232, 143, 1) 0,
+    rgba(46, 127, 171, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(75, 232, 143, 1)),
+    color-stop(100%, rgba(46, 127, 171, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(75, 232, 143, 1) 0,
+    rgba(46, 127, 171, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(75, 232, 143, 1) 0,
+    rgba(46, 127, 171, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(75, 232, 143, 1) 0,
+    rgba(46, 127, 171, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(75, 232, 143, 1) 0,
+    rgba(46, 127, 171, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#4be88f', endColorstr='#2e7fab', GradientType=1) !important;
+}
+
+.lhead {
+  border: none !important;
+  background: rgba(31, 165, 237, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(4, 15, 222, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(31, 165, 237, 1)),
+    color-stop(100%, rgba(4, 15, 222, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(4, 15, 222, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(4, 15, 222, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(4, 15, 222, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(31, 165, 237, 1) 0,
+    rgba(4, 15, 222, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#1fa5ed', endColorstr='#040fde', GradientType=1) !important;
+}
+
+.llaymond {
+  border: none !important;
+  background: rgba(31, 165, 237, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(110, 222, 4, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(31, 165, 237, 1)),
+    color-stop(100%, rgba(110, 222, 4, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(110, 222, 4, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(110, 222, 4, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(31, 165, 237, 1) 0,
+    rgba(110, 222, 4, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(31, 165, 237, 1) 0,
+    rgba(110, 222, 4, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#1fa5ed', endColorstr='#6ede04', GradientType=1) !important;
+}
+
+.lpop {
+  border: none !important;
+  background: rgba(241, 231, 103, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(241, 231, 103, 1)),
+    color-stop(100%, rgba(254, 182, 69, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f1e767', endColorstr='#feb645', GradientType=1) !important;
+}
+
+.lpeach {
+  border: none !important;
+  background: rgba(237, 66, 100, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(237, 66, 100, 1) 0,
+    rgba(255, 237, 188, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(255, 237, 188, 1)),
+    color-stop(100%, rgba(254, 182, 69, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(237, 66, 100, 1) 0,
+    rgba(255, 237, 188, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(237, 66, 100, 1) 0,
+    rgba(255, 237, 188, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(237, 66, 100, 1) 0,
+    rgba(255, 237, 188, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(237, 66, 100, 1) 0,
+    rgba(255, 237, 188, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f1e767', endColorstr='#feb645', GradientType=1) !important;
+}
+
+.lwh {
+  background: white !important;
+}
+
+.required label::after {
+  content: " *";
+  color: red;
+  font-size: 16px !important;
+}
+
+.vs-noti-lnot {
+  border: none !important;
+  background: rgba(247, 52, 140, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(247, 52, 140, 1)),
+    color-stop(100%, rgba(230, 68, 53, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(247, 52, 140, 1) 0,
+    rgba(230, 68, 53, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f7348c', endColorstr='#e64435', GradientType=1) !important;
+}
+
+.vs-noti-lok {
+  border: none !important;
+  background: rgba(241, 231, 103, 1) !important;
+  background: -moz-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(241, 231, 103, 1)),
+    color-stop(100%, rgba(254, 182, 69, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(241, 231, 103, 1) 0,
+    rgba(254, 182, 69, 1) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f1e767', endColorstr='#feb645', GradientType=1) !important;
+}
+
+.vs-noti-ldeep {
+  border: none !important;
+  background: rgba(0, 207, 69) !important;
+  background: -moz-linear-gradient(left, #00cf45 0, #94f069 100%) !important;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(148, 240, 105)),
+    color-stop(100%, rgba(46, 127, 171, 1))
+  ) !important;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(0, 207, 69) 0,
+    rgba(148, 240, 105) 100%
+  ) !important;
+  background: -o-linear-gradient(
+    left,
+    rgba(0, 207, 69) 0,
+    rgba(148, 240, 105) 100%
+  ) !important;
+  background: -ms-linear-gradient(
+    left,
+    rgba(0, 207, 69) 0,
+    rgba(148, 240, 105) 100%
+  ) !important;
+  background: linear-gradient(
+    to right,
+    rgba(0, 207, 69) 0,
+    rgba(148, 240, 105) 100%
+  ) !important;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#4be88f', endColorstr='#2e7fab', GradientType=1) !important;
+}
+
+.lxblue {
+  background-color: #0084b8 !important;
+  background-image: url("data:image/svg+xml,%3Csvgxmlns='http://www.w3.org/2000/svg'width='623'height='519.2'viewBox='001080900'%3E%3Cgfill-opacity='0.26'%3E%3Cpolygonfill='%23444'points='901500300180300'/%3E%3Cpolygonpoints='90150180000'/%3E%3Cpolygonfill='%23AAA'points='27015036001800'/%3E%3Cpolygonfill='%23DDD'points='450150360300540300'/%3E%3Cpolygonfill='%23999'points='45015054003600'/%3E%3Cpolygonpoints='630150540300720300'/%3E%3Cpolygonfill='%23DDD'points='63015072005400'/%3E%3Cpolygonfill='%23444'points='810150720300900300'/%3E%3Cpolygonfill='%23FFF'points='81015090007200'/%3E%3Cpolygonfill='%23DDD'points='9901509003001080300'/%3E%3Cpolygonfill='%23444'points='990150108009000'/%3E%3Cpolygonfill='%23DDD'points='904500600180600'/%3E%3Cpolygonpoints='904501803000300'/%3E%3Cpolygonfill='%23666'points='270450180600360600'/%3E%3Cpolygonfill='%23AAA'points='270450360300180300'/%3E%3Cpolygonfill='%23DDD'points='450450360600540600'/%3E%3Cpolygonfill='%23999'points='450450540300360300'/%3E%3Cpolygonfill='%23999'points='630450540600720600'/%3E%3Cpolygonfill='%23FFF'points='630450720300540300'/%3E%3Cpolygonpoints='810450720600900600'/%3E%3Cpolygonfill='%23DDD'points='810450900300720300'/%3E%3Cpolygonfill='%23AAA'points='9904509006001080600'/%3E%3Cpolygonfill='%23444'points='9904501080300900300'/%3E%3Cpolygonfill='%23222'points='907500900180900'/%3E%3Cpolygonpoints='270750180900360900'/%3E%3Cpolygonfill='%23DDD'points='270750360600180600'/%3E%3Cpolygonpoints='450750540600360600'/%3E%3Cpolygonpoints='630750540900720900'/%3E%3Cpolygonfill='%23444'points='630750720600540600'/%3E%3Cpolygonfill='%23AAA'points='810750720900900900'/%3E%3Cpolygonfill='%23666'points='810750900600720600'/%3E%3Cpolygonfill='%23999'points='9907509009001080900'/%3E%3Cpolygonfill='%23999'points='180090150270150'/%3E%3Cpolygonfill='%23444'points='3600270150450150'/%3E%3Cpolygonfill='%23FFF'points='5400450150630150'/%3E%3Cpolygonpoints='9000810150990150'/%3E%3Cpolygonfill='%23222'points='0300-9045090450'/%3E%3Cpolygonfill='%23FFF'points='030090150-90150'/%3E%3Cpolygonfill='%23FFF'points='18030090450270450'/%3E%3Cpolygonfill='%23666'points='18030027015090150'/%3E%3Cpolygonfill='%23222'points='360300270450450450'/%3E%3Cpolygonfill='%23FFF'points='360300450150270150'/%3E%3Cpolygonfill='%23444'points='540300450450630450'/%3E%3Cpolygonfill='%23222'points='540300630150450150'/%3E%3Cpolygonfill='%23AAA'points='720300630450810450'/%3E%3Cpolygonfill='%23666'points='720300810150630150'/%3E%3Cpolygonfill='%23FFF'points='900300810450990450'/%3E%3Cpolygonfill='%23999'points='900300990150810150'/%3E%3Cpolygonpoints='0600-9075090750'/%3E%3Cpolygonfill='%23666'points='060090450-90450'/%3E%3Cpolygonfill='%23AAA'points='18060090750270750'/%3E%3Cpolygonfill='%23444'points='18060027045090450'/%3E%3Cpolygonfill='%23444'points='360600270750450750'/%3E%3Cpolygonfill='%23999'points='360600450450270450'/%3E%3Cpolygonfill='%23666'points='540600630450450450'/%3E%3Cpolygonfill='%23222'points='720600630750810750'/%3E%3Cpolygonfill='%23FFF'points='900600810750990750'/%3E%3Cpolygonfill='%23222'points='900600990450810450'/%3E%3Cpolygonfill='%23DDD'points='090090750-90750'/%3E%3Cpolygonfill='%23444'points='18090027075090750'/%3E%3Cpolygonfill='%23FFF'points='360900450750270750'/%3E%3Cpolygonfill='%23AAA'points='540900630750450750'/%3E%3Cpolygonfill='%23FFF'points='720900810750630750'/%3E%3Cpolygonfill='%23222'points='900900990750810750'/%3E%3Cpolygonfill='%23222'points='10803009904501170450'/%3E%3Cpolygonfill='%23FFF'points='10803001170150990150'/%3E%3Cpolygonpoints='10806009907501170750'/%3E%3Cpolygonfill='%23666'points='10806001170450990450'/%3E%3Cpolygonfill='%23DDD'points='10809001170750990750'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.lxnav {
+  background: rgb(25, 173, 81);
+  background: linear-gradient(
+    90deg,
+    rgba(25, 173, 81, 1) 0%,
+    rgba(8, 176, 210, 1) 100%
+  );
+}

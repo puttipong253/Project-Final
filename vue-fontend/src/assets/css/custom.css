@@ -1,0 +1,27 @@
+.comment-header {
+    margin-right: 4px;
+    color: var(--yt-spec-text-primary);
+    margin-bottom: 2px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+}
+
+.shadow-cm {
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.text-dot {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 600px) {
+    .center-xs {
+        margin: auto;
+        width: 50%;
+    }
+}
