@@ -1,36 +1,29 @@
 <!----------Make By YourName---------------->
  <template>
-<v-layout row wrap>
-    <v-container fluid grid-list-md>
-        <v-layout row wrap>
-            <v-flex v-for="rod in rodList" :key="rod" md2>
-                <v-hover>
-                    <v-responsive slot-scope="{ hover }" class="mx-auto">
+<v-card>
+    <v-layout row wrap>
+        <v-container fluid grid-list-md>
+            <v-layout row wrap>
+                <v-flex v-for="rod in rodList" :key="rod" md2>
+
+                    <v-responsive>
                         <v-img height="150px" :src="rod.rod_image">
-                            <v-expand-transition>
-                                <div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal display-3 white--text" style="height: 100%;">
-                                    <div class="text-xs-center">
-                                        <v-btn @click="addData(rodList)">
-                                            ADD
-                                        </v-btn>
-                                    </div>
-                                </div>
-                            </v-expand-transition>
+
                         </v-img>
                     </v-responsive>
-                </v-hover>
-                <br>
-                <div class="text-xs-center">
-                    <p>{{rod.rod_name}}</p>
-                    <a href="#">Seemore</a>
-                </div>
-            </v-flex>
-        </v-layout>
-    </v-container>
-</v-layout>
+
+                    <br>
+                    <div class="text-xs-center">
+                        <p>{{rod.rod_name}}</p>
+                        <a href="#">Seemore</a>
+                    </div>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </v-layout>
+</v-card>
 </template>
 
-  
 <script>
 import {
     get,

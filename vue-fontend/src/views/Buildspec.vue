@@ -1,46 +1,46 @@
 <!----------Make By YourName---------------->
 <template>
-    <div>
-       <Mains/> 
-    </div>
+<div>
+    <Mains />
+</div>
 </template>
 
-  <script>
-  import Mains from '@/components/Web/Buildspec/main';
+  
+<script>
+import Mains from '@/components/Web/Buildspec/main';
 export default {
-  name: 'Root',
-  /*-------------------------Load Component---------------------------------------*/
-  components: {
-Mains
-  },
-  /*-------------------------Set Component---------------------------------------*/
-props:{
+    name: 'Root',
+    /*-------------------------Load Component---------------------------------------*/
+    components: {
+        Mains
+    },
+    /*-------------------------Set Component---------------------------------------*/
+    props: {
 
-},
-  /*-------------------------DataVarible---------------------------------------*/
-  data() {
-  return {
+    },
+    /*-------------------------DataVarible---------------------------------------*/
+    data() {
+        return {
 
-    };
-  }, 
-  /*-------------------------Run Methods when Start this Page------------------------------------------*/
-   async mounted() {
-  /**** Call loading methods*/
-      this.load(); 
-  },
-  /*-------------------------Run Methods when Start Routed------------------------------------------*/
-   async beforeRouteEnter(to, from, next) { 
-    next()
-  },
-  /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
-  computed:{
+        };
+    },
+    /*-------------------------Run Methods when Start this Page------------------------------------------*/
+    async mounted() {
+        /**** Call loading methods*/
+        this.load();
+    },
+    /*-------------------------Run Methods when Start Routed------------------------------------------*/
+    async beforeRouteEnter(to, from, next) {
+        next()
+    },
+    /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
+    computed: {
 
-},
-  /*-------------------------Methods------------------------------------------*/
-methods:{
-  /******* Methods default run ******/
-  load:async function(){
+    },
+    /*-------------------------Methods------------------------------------------*/
+    methods: {
+        /******* Methods default run ******/
+        load: async function () {}
+    },
 }
-},
-  }
 </script>

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Carts from './views/Carts'
+import Invoice from './views/Invoice'
 import Buildspec from './views/Buildspec'
 import Account from './views/Account'
 import Home from './views/Home'
@@ -24,9 +24,9 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/carts',
-      name: 'carts',
-      component: Carts
+      path: '/Invoice',
+      name: 'Invoice',
+      component: Invoice
     },
     {
       path: '/buildspec',

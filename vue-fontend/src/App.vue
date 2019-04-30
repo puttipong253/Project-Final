@@ -1,7 +1,7 @@
 <template>
   <v-app>     
    <NavBar/> 
-     <Alerter/>  -->
+     <Alerter/>  
      <v-content>    
       <router-view></router-view>
     </v-content>   

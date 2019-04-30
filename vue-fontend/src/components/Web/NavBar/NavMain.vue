@@ -1,6 +1,7 @@
 <template>
     <nav>
-        <v-navigation-drawer v-model="drawer" clipped fixed app>
+        <v-navigation-drawer v-model="drawer" clipped fixed app dark>
+            <!-- <v-card color="grey darken-1" height="665px"> -->
             <v-list>
                 <v-list-group prepend-icon="toc" app v-model="cat">
                     <template v-slot:activator>
@@ -47,8 +48,9 @@
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list>
+            <!-- </v-card> -->
         </v-navigation-drawer>
-        <v-toolbar app fixed clipped-left >
+        <v-toolbar app fixed clipped-left dark>
             <v-toolbar-side-icon @click="drawer=!drawer"></v-toolbar-side-icon>
                 <v-toolbar-title class="headline text-uppercase">
                     <span class="font-weight-light">FishingSpec</span>
@@ -61,8 +63,6 @@
                     <Register/>
                     <Login/>
         </v-toolbar>
-
-        <pre>{{test}}</pre>
     </nav>
 </template>
 
@@ -91,8 +91,7 @@ import Register from '@/views/Register'
             ],
             lists:[
                 {action:"build",title:"Buildspec",route:"/buildspec"},
-                {action:"shopping_cart",title:"Carts",route:"/carts"},
-                {action:"chrome_reader_mode",title:"Recommend",route:"/recommend"},
+                {action:"shopping_cart",title:"Invoice",route:"/Invoice"},
                 {action:"account_box",title:"Account",route:"/account"}
                
                 
