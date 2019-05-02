@@ -72,7 +72,7 @@ export default {
     data() {
         return {
             types: ['Single Hook', 'Double Hook', 'Triple Hook'],
-            colors: ['Gold', 'Black', 'Silver'],
+            colors: ['Gold', 'Black', 'Silver','Red'],
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/

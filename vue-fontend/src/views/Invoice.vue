@@ -1,14 +1,14 @@
 <template>
-    <v-container>
-        <div class="home">
-            <h1 class="hg200 hg-xs-50 fs70 fs-xs-20 green pd-20 pd-xs-0">jame studio</h1>
-        </div>
-    </v-container>  
+    <div>
+        <InvoiceMain />
+    </div>
 </template>
 
-
 <script>
-  export default {
-
-  }
+import InvoiceMain from '@/components/Web/Invoice/InvoiceMain';
+export default {
+    components: {
+        InvoiceMain
+    }
+}
 </script>

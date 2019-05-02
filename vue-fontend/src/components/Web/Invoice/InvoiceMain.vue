@@ -1,13 +1,28 @@
 <!----------Make By YourName---------------->
  <template>
 <div>
-    {{userData.email}}
+    <v-container fluid grid-list-xl>
+        <v-card height="500px">
+        <v-layout row justify-space-between>
+            
+            <v-flex xs2>
+                    <v-card-text>Username</v-card-text>
+            </v-flex>
+            <v-flex xs2>
+                    <v-card-text>Spec NO.</v-card-text>
+            </v-flex>
+           
+        </v-layout>
+        </v-card>
+    </v-container>
+    <br>
+    <div class="text-xs-center">
+        <v-btn color="purple accent-3">Export to PDF</v-btn>
+    </div>
 </div>
 </template>
 
-    
 <script>
-	import { get,sync,call } from "vuex-pathify"; 
 export default {
     name: 'Root',
     /*-------------------------Load Component---------------------------------------*/
@@ -35,7 +50,7 @@ export default {
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed: {
-        ...sync('user/*')
+
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {

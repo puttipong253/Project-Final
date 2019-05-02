@@ -11,7 +11,7 @@
 <script>
    import { get,sync,call } from "vuex-pathify"; 
    //import Alerter from '@/components/Share/alert';
-  import NavBar from '@/views/NavBar';
+  import NavBar from '@/components/Share/NavBar';
 export default {
   name: 'App',
   components:{

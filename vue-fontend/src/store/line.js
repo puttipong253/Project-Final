@@ -79,7 +79,6 @@ let load = await axios.get('/api/line')
         .then((r) => {
             state.lineDialog = false;
             store.dispatch('alert/alSuccess','Sucessfully'); 
-          
         }).catch((e) => {
             store.dispatch('alert/alError','Incorrect');  
             console.log(e);

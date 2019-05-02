@@ -30,11 +30,10 @@ async login(context, params) {
     
 },
 async getUser(context, params){ 
-  
     console.log('[my token2]', JSON.stringify(localStorage.getItem('token')))
-     await axios.get('/api/user',{ headers: { Authorization: `Bearer ${JSON.stringify(localStorage.getItem('token'))}` } })
+     await axios.get('/api/user')
     .then((r) => {
-        state.userData = r.data;
+        state.userData = r.data.user;
     }).catch((e) => { 
 
     });

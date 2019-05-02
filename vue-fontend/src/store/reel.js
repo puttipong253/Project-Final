@@ -66,7 +66,7 @@ let load = await axios.get('/api/reel')
             store.dispatch('alert/alSuccess','Sucessfully'); 
             location.reload();
         }).catch((e) => {
-            c
+            store.dispatch('alert/alError','Incorrect'); 
             console.log(e);
         });
        

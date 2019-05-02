@@ -3,24 +3,26 @@
     <v-container fluid grid-list-md>
         <v-layout row wrap>
             <v-flex md12>
-                <v-card height="500px" color="red"></v-card>
+                <v-card height="500px" color="red">
+                    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
+                </v-card>
             </v-flex>
             <v-flex md6>
                 <v-card height="500px" color="light-green accent-3"></v-card>
             </v-flex>
             <v-flex md6>
-                <v-card height="500px" color="blue"></v-card>
+                <v-card height="500px" color="blue">
+                    <v-carousel hide-delimiters>
+                        <v-carousel-item>
+                            <img src="@/assets/home_1.jpg">
+                        </v-carousel-item>
+                        <v-carousel-item>
+                            <img src="@/assets/home_2.jpg">
+                        </v-carousel-item>
+                    </v-carousel>
+                </v-card>
             </v-flex>
         </v-layout>
-        <br>
-        <div class="text-xs-center">
-            <v-btn color="yellow darken-1">
-                How to BuildSpec
-            </v-btn>
-
-            <!-- <v-icon>mdi-facebook-box</v-icon>  -->
-
-        </div>
     </v-container>
 </div>
 </template>
