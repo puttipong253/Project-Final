@@ -4,9 +4,9 @@
     <v-layout row wrap>
         <v-container fluid grid-list-md>
             <v-layout row wrap>
-                <v-flex v-for="reel in reelList" :key="reel">
+                <v-flex v-for="reel in reelList" :key="reel" md2>
                     <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="210px">
+                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
                             <div class="font-weight-light title text-xs-center mb-2">
                                 <br>
                                 {{reel.reel_name}}
@@ -14,22 +14,12 @@
                             <v-img :aspect-ratio="16/14" :src="reel.reel_image">
                             </v-img>
                             <v-card-text class="pt-4" style="position: relative;">
+                                <v-btn @click.stop="showReelsData(reel)" absolute color="red accent-2" class="white--text z-index" small fab right top>
+                                    <v-icon>search</v-icon>
+                                </v-btn>
                                 <div class="font-weight-light title text-xs-center mb-2">
                                     <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{reel.reel_price}}</h3>
                                 </div>
-                                <v-expansion-panel>
-                                    <v-expansion-panel-content>
-                                        <template v-slot:header>
-                                            <div>Detail</div>
-                                        </template>
-                                        <v-card-text class="text-xs-center blue lighten-2">
-                                            Type = {{reel.reel_type}} <br>
-                                            Size = {{reel.reel_size}} <br>
-                                            Brand = {{reel.reel_brand}} <br>
-                                            Color = {{reel.reel_color}}
-                                        </v-card-text>
-                                    </v-expansion-panel-content>
-                                </v-expansion-panel>
                             </v-card-text>
                         </v-card>
                     </v-hover>
@@ -37,6 +27,29 @@
             </v-layout>
         </v-container>
     </v-layout>
+     <div>
+        <v-dialog v-model="dialog" width="300px" persistent>
+            <div class="text-xs-center">
+                <v-card class="grey lighten-2">
+                    <v-card-title class="headline grey darken-3 white--text" primary-title>
+                        Description
+                    </v-card-title>
+                    <br>
+                    <h3>Name : {{reelData.reel_name}}</h3>
+                    <h3>Type : {{reelData.reel_type}}</h3>
+                    <h3>Size : {{reelData.reel_size}}</h3>
+                    <h3>Brand : {{reelData.reel_brand}}</h3>
+                    <h3>Color : {{reelData.reel_color}}</h3>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="red" flat @click="dialog = false">
+                            <v-icon>close</v-icon>
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </div>
+        </v-dialog>
+    </div>
 </v-card>
 </template>
 
@@ -47,7 +60,7 @@ import {
     call
 } from "vuex-pathify";
 export default {
-    name: 'Root',
+    name: 'Reels',
     /*-------------------------Load Component---------------------------------------*/
     components: {
 
@@ -59,7 +72,8 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
-
+            reelData: {},
+            dialog: false,
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -77,6 +91,10 @@ export default {
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
+        showReelsData(data){
+            this.reelData = data;
+            this.dialog = true;
+        },
         ...call('reel/*'),
         /******* Methods default run ******/
         async load() {

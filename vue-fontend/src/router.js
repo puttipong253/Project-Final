@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Invoice from './views/Invoice'
+import SpecHistory from './views/SpecHistory'
 import Buildspec from './views/Buildspec'
 import Account from './views/Account'
 import Home from './views/Home'
@@ -24,9 +24,9 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/Invoice',
-      name: 'Invoice',
-      component: Invoice
+      path: '/spechistory',
+      name: 'spechistory',
+      component: SpecHistory
     },
     {
       path: '/buildspec',
@@ -83,5 +83,7 @@ export default new Router({
       name: 'adlines',
       component: AdLines
     },
+
+
   ]
 })

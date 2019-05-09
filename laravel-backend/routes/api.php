@@ -23,6 +23,7 @@ Route::resource('hook','HookController');
 Route::resource('line','LineController');
 Route::resource('reel','ReelController');
 Route::resource('rod','RodController');
+Route::get('search','RodController@search');
 
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');
@@ -32,3 +33,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('user', 'UserController@getAuthenticatedUser');
     Route::get('closed', 'DataController@closed');
 });
+
+Route::resource('spec','SpecController');
+Route::post('cpassword', 'UserController@updatePassword');
+Route::post('cuser', 'UserController@updateUser');

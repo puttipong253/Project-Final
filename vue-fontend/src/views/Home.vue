@@ -2,17 +2,20 @@
  <template>
 <div>
     <Homemain/>
+    <Footer/>
 </div>
 </template>
 
   
 <script>
 import Homemain from '@/components/Web/Home/Homemain';
+import Footer from '@/components/Share/Footer';
 export default {
-    name: 'Root',
+    name: 'Home',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-        Homemain
+        Homemain,
+        Footer
     },
     /*-------------------------Set Component---------------------------------------*/
     props: {

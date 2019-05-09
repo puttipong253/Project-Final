@@ -9,7 +9,7 @@
 <script>
 import Mains from '@/components/Web/Buildspec/main';
 export default {
-    name: 'Root',
+    name: 'Buildspec',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         Mains

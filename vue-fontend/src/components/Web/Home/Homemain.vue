@@ -4,22 +4,27 @@
         <v-layout row wrap>
             <v-flex md12>
                 <v-card height="500px" color="red">
-                    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
+                    <v-parallax :src="require('@/assets/home_24.jpg')">
+                        <div class="text-xs-center display-3 mb-5">
+                            Welcome to BuildSpec
+                        </div>
+                    </v-parallax>
                 </v-card>
             </v-flex>
-            <v-flex md6>
-                <v-card height="500px" color="light-green accent-3"></v-card>
+            <v-flex md5>
+                <v-card height="500px" color="light-green accent-3">
+                    <v-parallax :src="require('@/assets/home_11.jpg')">
+
+                    </v-parallax>
+                </v-card>
             </v-flex>
-            <v-flex md6>
+            <v-flex md7>
                 <v-card height="500px" color="blue">
-                    <v-carousel hide-delimiters>
-                        <v-carousel-item>
-                            <img src="@/assets/home_1.jpg">
-                        </v-carousel-item>
-                        <v-carousel-item>
-                            <img src="@/assets/home_2.jpg">
-                        </v-carousel-item>
-                    </v-carousel>
+                    <v-parallax :src="require('@/assets/home_22.jpg')">
+                        <div class="text-xs-center">
+                            <h1>BuildSpec Fishing Tools</h1>
+                        </div>
+                    </v-parallax>
                 </v-card>
             </v-flex>
         </v-layout>

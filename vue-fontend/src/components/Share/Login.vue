@@ -1,13 +1,19 @@
 <template>
-<v-dialog width="400px">
+<v-dialog v-model="loginDialog" width="400px">
     <v-btn flat slot="activator">
         <v-icon>lock_open</v-icon>
         <span class="mr-2" >Login</span>
     </v-btn>
     <v-card>
-        <v-card-title>
-            <h2>Login</h2>
-        </v-card-title>
+        <v-toolbar dark color="primary">
+            <v-toolbar-title>Login</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+                <v-btn dark flat @click="loginDialogSwitch(false)" icon>
+                    <v-icon>close</v-icon>
+                </v-btn>
+            </v-toolbar-items>
+        </v-toolbar>
         <v-card-text>
             <form @submit.prevent="login()">
                 <v-text-field label="Email" type="email" v-model="loginForm.email" required></v-text-field>
@@ -23,7 +29,7 @@
 <script>
 	import { get,sync ,call} from "vuex-pathify"; 
 export default {
-    name: 'Root',
+    name: 'Login',
     /*-------------------------Load Component---------------------------------------*/
     components: {
 

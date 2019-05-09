@@ -41,7 +41,7 @@ import {
 } from "vuex-pathify";
 import rodDialog from "@/components/Web/Home/rodDialog";
 export default {
-    name: 'Root',
+    name: 'crudrod',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         rodDialog

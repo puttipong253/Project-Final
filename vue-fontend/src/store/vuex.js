@@ -10,6 +10,7 @@ import reel from './reel';
 import alert from './alert';
 import calculate from './calculate';
 import user from './user';
+
 Vue.use(Vuex)
 
 
@@ -20,7 +21,8 @@ const modules = {
     rod:rod,
     reel:reel,
     alert:alert,
-    calculate:calculate
+    calculate:calculate,
+ 
 }
 
 export default new Vuex.Store({

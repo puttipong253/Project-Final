@@ -25,7 +25,7 @@
                             <v-text-field v-model="rodForm.rod_line" type="number" label="Line Weight" required></v-text-field>
                         </v-flex>
                        <v-flex xs12 sm6 md6>
-                            <v-select v-model="rodForm.rod_power" :items="powers" label="Power" required></v-select>
+                            <v-select v-model="rodForm.rangeSpaec" :items="powers" label="Power" required></v-select>
                         </v-flex>
                         <v-flex xs12 sm6 md6>
                             <v-select v-model="rodForm.rod_type" :items="types" label="Type" required></v-select>
@@ -99,11 +99,13 @@ export default {
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed: {
-        ...sync('rod/*')
+        ...sync('rod/*'),
+        ...sync('calculate/*'),
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
         ...call('rod/*'),
+        ...call('calculate/*'),
         /******* Methods default run ******/
         load: async function () {
 

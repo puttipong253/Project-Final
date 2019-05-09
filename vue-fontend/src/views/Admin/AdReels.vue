@@ -8,7 +8,7 @@
     <script>
      import crudReel from '@/components/Web/AdminCRUD/crudReel'
 export default {
-    name: 'Root',
+    name: 'adreels',
     /*-------------------------Load Component---------------------------------------*/
     components: {
             crudReel

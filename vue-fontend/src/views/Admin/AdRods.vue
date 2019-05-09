@@ -8,7 +8,7 @@
     <script>
     import crudRod from '@/components/Web/AdminCRUD/crudRod'
 export default {
-    name: 'crudrod',
+    name: 'adrods',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         crudRod

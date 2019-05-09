@@ -40,7 +40,7 @@ import {
 } from "vuex-pathify";
 import hookDialog from "@/components/Web/Home/hookDialog";
 export default {
-    name: 'Root',
+    name: 'crudhook',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         hookDialog

@@ -74,4 +74,22 @@
 
                     return response()->json(compact('user'));
             }
+        
+            public function updateUser(Request $request){
+                \DB::table('users')
+                ->where('id', $request->id)
+                ->update([
+                'name' => $request->name
+                ,'surname'=> $request->surname ]);
+            }
+
+
+              
+            public function updatePassword(Request $request){
+                \DB::table('users')
+                ->where('id', $request->id)
+                ->update([ 'password' =>  Hash::make($request->password) ]);
+            }
+
+            
     }

@@ -39,7 +39,7 @@ import {
 } from "vuex-pathify";
 import reelDialog from "@/components/Web/Home/reelDialog";
 export default {
-    name: 'Root',
+    name: 'crudreel',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         reelDialog

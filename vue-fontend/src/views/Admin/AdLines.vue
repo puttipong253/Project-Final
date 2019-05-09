@@ -8,7 +8,7 @@
     <script>
     import crudLine from '@/components/Web/AdminCRUD/crudLine'
 export default {
-    name: 'crudlines',
+    name: 'adlines',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         crudLine

@@ -8,7 +8,7 @@
     <script>
     import crudHook from '@/components/Web/AdminCRUD/crudHook'
 export default {
-    name: 'crudhook',
+    name: 'adhooks',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         crudHook

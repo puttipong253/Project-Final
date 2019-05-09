@@ -13,9 +13,18 @@ class RodController extends Controller
      */
     public function index()
     {
-        return FishingRod::get();
+      
+        $rod = \DB::table('fishing_rods')->paginate(5);
+        return $rod;
+       
     }
-
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $rod = \DB::table('fishing_rods')->where('rod_name','like','%'.$search.'%')->paginate(5);
+                                      
+        return $rod;
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -1,7 +1,7 @@
 <template>
 <nav>
     <v-navigation-drawer v-model="drawer" clipped fixed app dark>
-
+        
         <v-list>
             <v-list-group prepend-icon="toc" app v-model="cat">
                 <template v-slot:activator>
@@ -11,7 +11,7 @@
                         </v-list-tile-content>
                     </v-list-tile>
                 </template>
-                <v-list-tile v-for="item in items" :key="item" router :to="item.route">
+                <v-list-tile v-for="item in items" :key="item.title" router :to="item.route">
                     <v-list-tile-action>
                         <v-icon></v-icon>
                     </v-list-tile-action>
@@ -20,7 +20,7 @@
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list-group>
-            <v-list-group v-if="userData.id" prepend-icon="toc" app v-model="dog">
+            <v-list-group v-if="userData.permission==1" prepend-icon="toc" app v-model="dog">
                 <template v-slot:activator>
                     <v-list-tile>
                         <v-list-tile-content>
@@ -28,7 +28,7 @@
                         </v-list-tile-content>
                     </v-list-tile>
                 </template>
-                <v-list-tile v-for="tmp in tmps" :key="tmp" router :to="tmp.route">
+                <v-list-tile v-for="tmp in tmps" :key="tmp.title" router :to="tmp.route">
                     <v-list-tile-action>
                         <v-icon></v-icon>
                     </v-list-tile-action>
@@ -39,7 +39,7 @@
             </v-list-group>
         </v-list>
         <v-list v-if="userData.id">
-            <v-list-tile v-for="list in lists" :key=" list" router :to="list.route">
+            <v-list-tile v-for="list in lists" :key=" list.action" router :to="list.route">
                 <v-list-tile-action>
                     <v-icon>{{list.action}}</v-icon>
                 </v-list-tile-action>
@@ -126,14 +126,19 @@ export default {
                 },
                 {
                     action: "shopping_cart",
-                    title: "Invoice",
-                    route: "/Invoice"
+                    title: "SpecHistory",
+                    route: "/spechistory"
                 },
                 {
                     action: "account_box",
                     title: "Account",
                     route: "/account"
-                }
+                },
+                                {
+                    action: "shopping_cart",
+                    title: "buildtest",
+                    route: "/buildtest"
+                },
 
             ]
         }
@@ -144,6 +149,7 @@ export default {
     methods: {
         async logout() {
             await localStorage.removeItem('token');
+            await this.$router.replace('/')
             await location.reload();
         }
     }

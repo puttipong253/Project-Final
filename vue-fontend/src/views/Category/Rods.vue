@@ -4,9 +4,9 @@
     <v-layout row wrap>
         <v-container fluid grid-list-md>
             <v-layout row wrap>
-                <v-flex v-for="rod in rodList" :key="rod">
+                <v-flex v-for="rod in rodList" :key="rod" md2>
                     <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="210px">
+                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
                             <div class="font-weight-light title text-xs-center mb-2">
                                 <br>
                                 {{rod.rod_name}}
@@ -14,24 +14,12 @@
                             <v-img :aspect-ratio="16/14" :src="rod.rod_image">
                             </v-img>
                             <v-card-text class="pt-4" style="position: relative;">
+                                <v-btn @click.stop="showRodsData(rod)" absolute color="red accent-2" class="white--text z-index" small fab right top>
+                                    <v-icon>search</v-icon>
+                                </v-btn>
                                 <div class="font-weight-light title text-xs-center mb-2">
                                     <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{rod.rod_price}}</h3>
                                 </div>
-                                <v-expansion-panel>
-                                    <v-expansion-panel-content>
-                                        <template v-slot:header>
-                                            <div>Detail</div>
-                                        </template>
-                                        <v-card-text class="text-xs-center blue lighten-2">
-                                            Type = {{rod.rod_type}} <br>
-                                            Length = {{rod.rod_length}} f.<br>
-                                            Power = {{rod.rod_power}} <br>
-                                            LineWeight = {{rod.rod_line}} g.<br>
-                                            Brand = {{rod.rod_brand}} <br>
-                                            Color = {{rod.rod_color}}
-                                        </v-card-text>
-                                    </v-expansion-panel-content>
-                                </v-expansion-panel>
                             </v-card-text>
                         </v-card>
                     </v-hover>
@@ -39,6 +27,31 @@
             </v-layout>
         </v-container>
     </v-layout>
+    <div>
+        <v-dialog v-model="dialog" width="300px" persistent>
+            <div class="text-xs-center">
+                <v-card class="grey lighten-2">
+                    <v-card-title class="headline grey darken-3 white--text" primary-title>
+                        Description
+                    </v-card-title>
+                    <br>
+                    <h3>Name : {{rodData.rod_name}}</h3>
+                    <h3>Type : {{rodData.rod_type}}</h3>
+                    <h3>Length : {{rodData.rod_length}} ft.</h3>
+                    <h3>Power : {{rodData.rod_power}}</h3>
+                    <h3>LineWeight : {{rodData.rod_line}} g.</h3>
+                    <h3>Brand : {{rodData.rod_brand}}</h3>
+                    <h3>Color : {{rodData.rod_color}}</h3>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="red" flat @click="dialog = false">
+                            <v-icon>close</v-icon>
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </div>
+        </v-dialog>
+    </div>
 </v-card>
 </template>
 
@@ -49,7 +62,7 @@ import {
     call
 } from "vuex-pathify";
 export default {
-    name: 'Root',
+    name: 'Rods',
     /*-------------------------Load Component---------------------------------------*/
     components: {
 
@@ -61,7 +74,8 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
-
+            rodData: {},
+            dialog: false,
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -79,6 +93,10 @@ export default {
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
+        showRodsData(data){
+            this.rodData = data;
+            this.dialog = true;
+        },
         ...call('rod/*'),
         /******* Methods default run ******/
         async load() {

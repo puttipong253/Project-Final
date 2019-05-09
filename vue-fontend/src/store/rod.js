@@ -8,7 +8,6 @@ const state = {
     rodList:[],
     rodDialog:false,
     rodForm:{},
-    rod_image:'',
 }
 const getters = {
 
@@ -35,9 +34,7 @@ let load = await axios.get('/api/rod')
     }).catch((e) => {
         console.log(e);
     });
-  
     },
-
     async getRodOnce(context,params) {
         let load = await axios.get('/api/rod/'+params)
             .then((r) => {
@@ -48,8 +45,6 @@ let load = await axios.get('/api/rod')
             });
           
     },
-        
-
     async storeRod() {
             if(!state.rodForm.id){
                await actions.insertRod();

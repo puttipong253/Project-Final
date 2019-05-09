@@ -39,7 +39,7 @@ import {
 } from "vuex-pathify";
 import lineDialog from "@/components/Web/Home/lineDialog";
 export default {
-    name: 'root',
+    name: 'crudline',
     /*-------------------------Load Component---------------------------------------*/
     components: {
         lineDialog

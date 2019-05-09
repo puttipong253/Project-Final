@@ -3,7 +3,7 @@
 <div>
     <v-snackbar v-model="alertModel" :color="alertColor" 
       right
-      timeout="6000"
+      :timeout="6000"
       top
        
     >
