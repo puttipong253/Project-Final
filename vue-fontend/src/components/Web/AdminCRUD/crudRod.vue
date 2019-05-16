@@ -15,7 +15,8 @@
             <td>{{ props.item.rod_name }}</td>
             <td>{{ props.item.rod_length }}</td>
             <td>{{ props.item.rod_line }}</td>
-            <td v-if="props.item.rod_power == 1">UL</td>
+            <td v-if="props.item.rod_power == 0">NP</td>
+            <td v-else-if="props.item.rod_power == 1">UL</td>
             <td v-else-if="props.item.rod_power == 2">L</td>
             <td v-else-if="props.item.rod_power == 3">M</td>
             <td v-else-if="props.item.rod_power == 4">ML</td>

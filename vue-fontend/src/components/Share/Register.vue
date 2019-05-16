@@ -21,7 +21,7 @@
                 <v-text-field label="Surname" type="text" v-model="registerForm.surname" required></v-text-field>
                 <v-text-field label="Password" type="password" v-model="registerForm.password" required></v-text-field>
                 <v-text-field label="E-mail" type="email" v-model="registerForm.email" required></v-text-field>
-                <v-btn class="primary" type="submit">Submit</v-btn>
+                <v-btn class="primary" type="submit"><v-icon>account_box</v-icon>&nbsp;Submit</v-btn>
             </form>
         </v-card-text>
     </v-card>

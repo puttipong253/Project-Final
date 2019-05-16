@@ -52,12 +52,12 @@
         <VCard>
             <v-container row wrap>
                 <center>
-                    <h1 class="fs26"><b>Purchase order</b></h1>
+                    <h1 class="fs26"><b>Purchase Order</b></h1>
                 </center>
                 <hr>
                 <h1 class="fs16"><b>UserName :</b> {{userData.name}}</h1>
                 <h1 class="fs16"><b>Order Number :</b> {{printData.id}}</h1>
-                <h2 class="fs16"><b>Order Date :</b> {{ printData.created_at}}</h2>
+                <h2 class="fs16"><b>Spec Date :</b> {{ printData.created_at}}</h2>
                 <table class="w3-table-all" height="300px">
                     <thead>
                         <tr class="w3-light-grey text-xs-center">
@@ -106,7 +106,7 @@
                 </table>
             </v-container>
             <v-btn @click="printOn()" color="primary"><v-icon>print</v-icon>&nbsp;Print</v-btn>
-            <v-btn @click="closeDialogPrint()" color="red" dark><v-icon>delete_outline</v-icon>Delete</v-btn>
+            <v-btn @click="closeDialogPrint()" color="red" dark><v-icon>close</v-icon>close</v-btn>
         </VCard>
     </v-dialog>
 </div>
