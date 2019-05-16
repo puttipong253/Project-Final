@@ -97,7 +97,16 @@ let load = await axios.get('/api/reel')
           });}
         actions.getReelList();
        
-    }
+    },
+    async searchingReel(context,params){
+        let load = await axios.get('/api/searchReel?search='+params )
+    .then((r) => {
+        state.reelList = r.data;
+    }).catch((e) => {
+        console.log(e);
+    });
+}
+    
 
 
 

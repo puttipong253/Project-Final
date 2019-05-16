@@ -10,6 +10,7 @@ import reel from './reel';
 import alert from './alert';
 import calculate from './calculate';
 import user from './user';
+import spec from './spec';
 
 Vue.use(Vuex)
 
@@ -22,6 +23,7 @@ const modules = {
     reel:reel,
     alert:alert,
     calculate:calculate,
+    spec:spec,
  
 }
 

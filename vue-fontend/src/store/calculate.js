@@ -6,14 +6,14 @@ const state = {
     e1:0,
     typeRod: '',
     sizeReel:0,
-    sizeLine: 0,
-    rodScore:0,
+    sizeLine:0,
+    rodPower:0,
     addHook:{},
     addLine:{},
     addReel:{},
     addRod:{},
     addData:[],
-    rangeSpaec:'Medium (M)',
+    rangeSpaec:'',
     datacollection: null
 };
 const getters = {};
@@ -22,12 +22,15 @@ const mutations = make.mutations(state);
 
 const actions = {
 
+  
+
   async fillData() {
     state.datacollection = {
-        labels: ['Line', 'Reel', 'Rod'],
-        datasets: [{
+        labels: ['Rod', 'Reel', 'Line'],
+        datasets: [
+          {
             label: '# Score of Strength',
-            data: [state.sizeLine,state.sizeReel/100,state.addRod.rod_power*10 , 1, 100],
+            data: [state.rodPower/9*100,state.sizeReel/10000*100,state.sizeLine/50*100, 1, 100],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -45,64 +48,41 @@ const actions = {
                 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
-        }]
+
+        },
+      ]
     }
 },
 
   async checkSpec(context,params){
-    if (params == 2) {
-      state.rangeSpaec = "Ultra-Light (UL)";
+    if (params == 0) {
+      state.rangeSpaec = 'NP';
+    }
+    else if (params == 1) {
+      state.rangeSpaec = 'UL';
+    }
+    else if (params == 2) {
+      state.rangeSpaec = 'L';
     }
     else if (params == 3) {
-      state.rangeSpaec = "Light (L)";
+      state.rangeSpaec = 'M';
     }
     else if (params == 4) {
-      state.rangeSpaec = "Medium (M)";
+      state.rangeSpaec = 'ML';
     }
-    else if (params == 5) {
-      state.rangeSpaec = "Medium-Light (ML)";
+    else if (params == 5){
+      state.rangeSpaec = 'MH';
     }
     else if (params == 6) {
-      state.rangeSpaec = "Medium-Heavy (MH)";
+      state.rangeSpaec = 'H';
     }
     else if (params == 7) {
-      state.rangeSpaec = "Heavy (H)";
+      state.rangeSpaec = 'EH';
     }
     else if (params == 8) {
-      state.rangeSpaec = "Extra-Heavy (EH)";
+      state.rangeSpaec = 'UH';
     }
-    else if (params == 9) {
-      state.rangeSpaec = "Ultra-Heavy (UH)";
-    }
-  },
- 
-  async storeSpec(context,params){
-    let load = await axios.post('/api/spec',params)
-    .then((r) => {
-       alert('Save Data Successfuly');
-    }).catch((e) => {
-        console.log(e);
-    }); 
-  },
-
-  async showSpec(context,params){
-    let id =0;
-    await axios.get('/api/user')
-   .then((r) => {
-    id = r.data.user.id;
-   }).catch((e) => { 
-
-   });
-
-    let load = await axios.get('/api/spec/'+id)
-    .then((r) => {
-        state.addData = r.data;
-    }).catch((e) => {
-        console.log(e);
-    }); 
-
-    
-  }
+  }, 
 
 };
 

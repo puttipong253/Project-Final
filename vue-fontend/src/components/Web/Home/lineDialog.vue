@@ -4,7 +4,8 @@
     <v-dialog v-model="lineDialog" persistent :overlay="false" max-width="500px" transition="dialog-transition">
         <v-card>
             <v-toolbar dark color="primary">
-                <v-toolbar-title>Add Line</v-toolbar-title>
+                <v-toolbar-title v-if="!lineForm.id">Add Line</v-toolbar-title>
+                <v-toolbar-title v-else>Update Line</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-items>
                     <v-btn dark flat @click="lineDialogSwitch(false)" icon>
@@ -57,7 +58,7 @@ import {
     call
 } from "vuex-pathify";
 export default {
-    name: 'Root',
+    name: 'linedialog',
     /*-------------------------Load Component---------------------------------------*/
     components: {
 

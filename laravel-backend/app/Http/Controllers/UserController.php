@@ -86,9 +86,15 @@
 
               
             public function updatePassword(Request $request){
-                \DB::table('users')
+              $user =   \DB::table('users')
                 ->where('id', $request->id)
                 ->update([ 'password' =>  Hash::make($request->password) ]);
+                if($user){
+                    return 'Change Password success';
+                }else{
+                    return $user;
+                }
+
             }
 
             

@@ -18,7 +18,7 @@
             <form @submit.prevent="login()">
                 <v-text-field label="Email" type="email" v-model="loginForm.email" required></v-text-field>
                 <v-text-field label="Password" type="password" v-model="loginForm.password" required></v-text-field>
-                <v-btn class="primary" type="submit">Login</v-btn>
+                <v-btn class="primary" type="submit"><v-icon>vpn_key</v-icon>&nbsp;Login</v-btn>
             </form>
         </v-card-text>
     </v-card>

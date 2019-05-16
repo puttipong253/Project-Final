@@ -23,7 +23,10 @@ Route::resource('hook','HookController');
 Route::resource('line','LineController');
 Route::resource('reel','ReelController');
 Route::resource('rod','RodController');
-Route::get('search','RodController@search');
+Route::get('searchRod','RodController@search');
+Route::get('searchReel','ReelController@search');
+Route::get('searchLine','LineController@search');
+Route::get('searchHook','HookController@search');
 
 Route::post('register', 'UserController@register');
 Route::post('login', 'UserController@authenticate');

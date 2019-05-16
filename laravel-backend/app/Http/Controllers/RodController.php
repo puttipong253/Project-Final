@@ -14,14 +14,16 @@ class RodController extends Controller
     public function index()
     {
       
-        $rod = \DB::table('fishing_rods')->paginate(5);
-        return $rod;
+        return FishingRod::get();
        
     }
-    public function search(Request $request)
+    public function search()
     {
-        $search = $request->get('search');
-        $rod = \DB::table('fishing_rods')->where('rod_name','like','%'.$search.'%')->paginate(5);
+        $search = $_GET['search'];
+        $rod = \DB::table('fishing_rods')->where('rod_name','like','%'.$search.'%')
+                                        ->Orwhere('rod_type','like','%'.$search.'%')
+                                        ->Orwhere('rod_price','<=',$search)
+                                        ->get();
                                       
         return $rod;
     }

@@ -1,84 +1,53 @@
 <!----------Make By YourName---------------->
  <template>
 <v-container fluid grid-list-md>
+    <VTextField
+        prepend-icon="search"
+        @change="Linesearching()"
+                v-model="search"
+                label="Search"/>
     <v-layout row wrap>
-        <div v-for="line in lineList" :key="line.id">
-            <div v-if="sizeReel <= 2500 ">
-                <v-flex v-if=" line.line_size <= 12 ">
-                    <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
-                            <div class="font-weight-light title text-xs-center mb-2">
-                                <br>
-                                {{line.line_name}}
-                            </div>
-                            <v-img :aspect-ratio="16/14" :src="line.line_image">
-                            </v-img>
-                            <v-card-text class="pt-4" style="position: relative;">
-                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" fab right top>
+        <v-flex v-for="line in lineList" :key="line.id" md2>
+            <v-hover>
+                <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
+                    <div class="font-weight-light title text-xs-center mb-2">
+                        <br>
+                        {{line.line_name}}
+                    </div>
+                    <v-img :aspect-ratio="16/14" :src="line.line_image">
+                    </v-img>
+                    <v-card-text class="pt-4" style="position: relative;">
+                        <div v-if="sizeReel <= 2500 ">
+                            <div v-if=" line.line_size <= 12 ">
+                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" small fab right top>
                                     <v-icon>add</v-icon>
                                 </v-btn>
-                                <v-btn @click.stop="showLinesData(line)" absolute color="red accent-2" class="white--text z-index" small fab left top>
-                                    <v-icon>search</v-icon>
-                                </v-btn>
-                                <div class="font-weight-light title text-xs-center mb-2">
-                                    <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{line.line_price}}</h3>
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </v-hover>
-                </v-flex>
-            </div>
-            <div v-else-if="sizeReel > 2500  && sizeReel <= 4000">
-                <v-flex v-if=" line.line_size > 12 && line.line_size  <= 30 ">
-                    <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
-                            <div class="font-weight-light title text-xs-center mb-2">
-                                <br>
-                                {{line.line_name}}
                             </div>
-                            <v-img :aspect-ratio="16/14" :src="line.line_image">
-                            </v-img>
-                            <v-card-text class="pt-4" style="position: relative;">
-                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" fab right top>
+                        </div>
+                        <div v-if="sizeReel > 2500  && sizeReel <= 4000">
+                            <div v-if=" line.line_size > 12 && line.line_size  <= 30 ">
+                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" small fab right top>
                                     <v-icon>add</v-icon>
                                 </v-btn>
-                                <v-btn @click.stop="showLinesData(line)" absolute color="red accent-2" class="white--text z-index" small fab left top>
-                                    <v-icon>search</v-icon>
-                                </v-btn>
-                                <div class="font-weight-light title text-xs-center mb-2">
-                                    <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{line.line_price}}</h3>
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </v-hover>
-                </v-flex>
-            </div>
-            <div v-else-if="sizeReel > 4000  && sizeReel <= 10000">
-                <v-flex v-if=" line.line_size > 30  ">
-                    <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
-                            <div class="font-weight-light title text-xs-center mb-2">
-                                <br>
-                                {{line.line_name}}
                             </div>
-                            <v-img :aspect-ratio="16/14" :src="line.line_image">
-                            </v-img>
-                            <v-card-text class="pt-4" style="position: relative;">
-                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" fab right top>
+                        </div>
+                        <div v-if="sizeReel > 4000  && sizeReel <= 10000">
+                            <div v-if=" line.line_size > 30  ">
+                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" small fab right top>
                                     <v-icon>add</v-icon>
                                 </v-btn>
-                                <v-btn @click.stop="showLinesData(line)" absolute color="red accent-2" class="white--text z-index" small fab left top>
-                                    <v-icon>search</v-icon>
-                                </v-btn>
-                                <div class="font-weight-light title text-xs-center mb-2">
-                                    <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{line.line_price}}</h3>
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </v-hover>
-                </v-flex>
-            </div>
-        </div>
+                            </div>
+                        </div>
+                        <v-btn @click.stop="showLinesData(line)" absolute color="grey" class="white--text z-index" small fab left top>
+                            <v-icon>search</v-icon>
+                        </v-btn>
+                        <div class="font-weight-light title text-xs-center mb-2">
+                            <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{line.line_price}}</h3>
+                        </div>
+                    </v-card-text>
+                </v-card>
+            </v-hover>
+        </v-flex>
     </v-layout>
     <div>
         <v-dialog v-model="dialog3" width="300px" persistent>
@@ -125,17 +94,9 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
+            search:'',
             lineData: {},
             dialog3: false,
-            UL: 1,
-            L: 2,
-            M: 3,
-            ML: 4,
-            MH: 5,
-            H: 7,
-            EH: 9,
-            UH: 10,
-      
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -159,11 +120,18 @@ export default {
             this.dialog3 = true;
         },
         storeLines(data) {
-            let check = confirm('คุณแน่ใจใช่ไหมที่จะเลือกสินค้าชิ้นนี้');
+            let check = confirm('Are you sure you want to select this product?');
             if (check) {
                 this.sizeLine = data.line_size
                 this.addLine = data;
                 this.e1++;
+            }
+        },
+        async Linesearching() {
+            if (this.search != '') {
+                await this.searchingLine(this.search)
+            } else {
+                await this.getLineList();
             }
         },
         ...call('line/*'),

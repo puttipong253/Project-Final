@@ -48,11 +48,13 @@ async login(context, params) {
     await axios.post('/api/login', state.loginForm)
     .then((r) => { 
         token = r.data;
+        location.reload();
     }).catch((e) => {
         alert('Error Login');
+        state.loginForm={};
     });
     await localStorage.setItem("token",token); 
-    await location.reload(); 
+     
     
 },
 

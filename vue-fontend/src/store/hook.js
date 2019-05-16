@@ -99,7 +99,15 @@ let load = await axios.get('/api/hook')
           });}
         actions.getHookList();
        
-    }
+    },
+    async searchingHook(context,params){
+        let load = await axios.get('/api/searchHook?search='+params )
+    .then((r) => {
+        state.hookList = r.data;
+    }).catch((e) => {
+        console.log(e);
+    });
+}
 
 
 

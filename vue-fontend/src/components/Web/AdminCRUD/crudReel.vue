@@ -2,7 +2,7 @@
   <template>
 <v-card>
     <v-card-title>
-        <v-btn @click="reelDialogSwitch(true)" color="success">Add</v-btn>
+        <v-btn @click="reelDialogSwitch(true)" color="success" fab><v-icon>add</v-icon></v-btn>
         <v-spacer></v-spacer>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
     </v-card-title>
@@ -19,8 +19,8 @@
             <td>{{ props.item.reel_brand }}</td>
             <td>{{ props.item.reel_price }}</td>
             <td>
-                <v-btn @click="getReelOnce( props.item.id )" small color="primary">Edit</v-btn><br/>
-                <v-btn @click="deleteReel( props.item.id )" small color="error">Delete</v-btn>
+                <v-btn @click="getReelOnce( props.item.id )" fab small color="primary"><v-icon>create</v-icon></v-btn>
+                <v-btn @click="deleteReel( props.item.id )" fab small color="error"><v-icon>delete_outline</v-icon></v-btn>
             </td>
         </template>
         <v-alert v-slot:no-results :value="true" color="error" icon="warning">

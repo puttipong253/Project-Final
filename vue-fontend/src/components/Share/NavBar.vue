@@ -24,7 +24,7 @@
                 <template v-slot:activator>
                     <v-list-tile>
                         <v-list-tile-content>
-                            <v-list-tile-title>Product</v-list-tile-title>
+                            <v-list-tile-title>CRUD Product</v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </template>
@@ -62,7 +62,12 @@
         </v-btn>
         <Register v-if="!userData.id" />
         <Login v-if="!userData.id" />
-        <v-btn v-if="userData.id" @click="logout()" flat>LOGOUT</v-btn>
+        <v-btn v-if="userData.id" @click="logout()" flat>
+            <v-icon>
+                input
+            </v-icon>
+            Logout
+            </v-btn>
     </v-toolbar>
 </nav>
 </template>
@@ -134,12 +139,6 @@ export default {
                     title: "Account",
                     route: "/account"
                 },
-                                {
-                    action: "shopping_cart",
-                    title: "buildtest",
-                    route: "/buildtest"
-                },
-
             ]
         }
     },

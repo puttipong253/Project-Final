@@ -2,7 +2,7 @@
   <template>
 <v-card>
     <v-card-title>
-        <v-btn @click="rodDialogSwitch(true)" color="success">Add</v-btn>
+        <v-btn @click="rodDialogSwitch(true)" color="success" fab><v-icon>add</v-icon></v-btn>
         <v-spacer></v-spacer>
         <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
     </v-card-title>
@@ -15,14 +15,21 @@
             <td>{{ props.item.rod_name }}</td>
             <td>{{ props.item.rod_length }}</td>
             <td>{{ props.item.rod_line }}</td>
-            <td>{{ props.item.rod_power }}</td>
+            <td v-if="props.item.rod_power == 1">UL</td>
+            <td v-else-if="props.item.rod_power == 2">L</td>
+            <td v-else-if="props.item.rod_power == 3">M</td>
+            <td v-else-if="props.item.rod_power == 4">ML</td>
+            <td v-else-if="props.item.rod_power == 5">MH</td>
+            <td v-else-if="props.item.rod_power == 6">H</td>
+            <td v-else-if="props.item.rod_power == 7">EH</td>
+            <td v-else-if="props.item.rod_power == 8">UH</td>
             <td>{{ props.item.rod_type }}</td>
             <td>{{ props.item.rod_color }}</td>
             <td>{{ props.item.rod_brand }}</td>
             <td>{{ props.item.rod_price }}</td>
             <td>
-                <v-btn @click="getRodOnce( props.item.id )" small color="primary">Edit</v-btn><br/>
-                <v-btn @click="deleteRod( props.item.id )" small color="error">Delete</v-btn>
+                <v-btn @click="getRodOnce( props.item.id )" fab small color="primary"><v-icon>create</v-icon></v-btn>
+                <v-btn @click="deleteRod( props.item.id )" fab small color="error"><v-icon>delete_outline</v-icon></v-btn>
             </td>
         </template>
         <v-alert v-slot:no-results :value="true" color="error" icon="warning">
@@ -105,6 +112,9 @@ export default {
     async mounted() {
         /**** Call loading methods*/
         this.load();
+        this.checkSpec(rod_power);
+            
+        
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
     async beforeRouteEnter(to, from, next) {
@@ -113,10 +123,13 @@ export default {
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed: {
         ...sync('rod/*'),
+        ...sync('calculate/*'),
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
+
         ...call('rod/*'),
+        ...sync('calculate/*'),
         /******* Methods default run ******/
         async load() {
             await this.getRodList();

@@ -1,32 +1,36 @@
 <!----------Make By YourName---------------->
  <template>
 <v-container fluid grid-list-md>
+    <VTextField prepend-icon="search" @change="Reelsearching()" v-model="search" label="Search" />
     <v-layout row wrap>
-        <div v-for="reel in reelList" :key="reel.id">
-            <v-flex v-if="typeRod == reel.reel_type">
-                <v-hover>
-                    <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
-                        <div class="font-weight-light title text-xs-center mb-2">
-                            <br>
-                            {{reel.reel_name}}
-                        </div>
-                        <v-img :aspect-ratio="16/14" :src="reel.reel_image">
-                        </v-img>
-                        <v-card-text class="pt-4" style="position: relative;">
-                            <v-btn @click="storeReels(reel)" absolute color="orange" class="white--text z-index" fab right top>
+        <v-flex v-for="reel in reelList" :key="reel.id" md2>
+
+            <v-hover>
+                <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
+                    <div class="font-weight-light title text-xs-center mb-2">
+                        <br>
+                        {{reel.reel_name}}
+                    </div>
+                    <v-img :aspect-ratio="16/14" :src="reel.reel_image">
+                    </v-img>
+                    <v-card-text class="pt-4" style="position: relative;">
+                        <div v-if="typeRod == reel.reel_type">
+                            <v-btn @click="storeReels(reel)" absolute color="orange" class="white--text z-index" fab small right top>
                                 <v-icon>add</v-icon>
                             </v-btn>
-                            <v-btn @click.stop="showReelsData(reel)" absolute color="red accent-2" class="white--text z-index" small fab left top>
-                                <v-icon>search</v-icon>
-                            </v-btn>
-                            <div class="font-weight-light title text-xs-center mb-2">
-                                <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{reel.reel_price}}</h3>
-                            </div>
-                        </v-card-text>
-                    </v-card>
-                </v-hover>
-            </v-flex>
-        </div>
+                        </div>
+                        <v-btn @click.stop="showReelsData(reel)" absolute color="grey" class="white--text z-index" small fab left top>
+                            <v-icon>search</v-icon>
+                        </v-btn>
+                        <div class="font-weight-light title text-xs-center mb-2">
+                            <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{reel.reel_price}}</h3>
+                        </div>
+                    </v-card-text>
+                </v-card>
+            </v-hover>
+
+        </v-flex>
+
     </v-layout>
     <div>
         <v-dialog v-model="dialog2" width="300px" persistent>
@@ -73,17 +77,9 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
+            search: '',
             reelData: {},
             dialog2: false,
-            UL: 1,
-            L: 2,
-            M: 3,
-            ML: 4,
-            MH: 5,
-            H: 7,
-            EH: 9,
-            UH: 10,
-  
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -107,11 +103,18 @@ export default {
             this.dialog2 = true;
         },
         storeReels(data) {
-            let check = confirm('คุณแน่ใจใช่ไหมที่จะเลือกสินค้าชิ้นนี้');
+            let check = confirm('Are you sure you want to select this product?');
             if (check) {
                 this.sizeReel = data.reel_size
                 this.addReel = data;
                 this.e1++;
+            }
+        },
+        async Reelsearching() {
+            if (this.search != '') {
+                await this.searchingReel(this.search)
+            } else {
+                await this.getReelList();
             }
         },
         ...call('reel/*'),

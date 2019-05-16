@@ -16,6 +16,7 @@
                             <v-card-text class="pt-4" style="position: relative;">
                                 <div class="font-weight-light title text-xs-center mb-2">
                                     <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{addRod.rod_price}}</h3>
+                                    <h4 class="text-xs-center ">power {{addRod.rod_power}}</h4>
                                 </div>
                             </v-card-text>
                         </v-card>
@@ -33,6 +34,7 @@
                             <v-card-text class="pt-4" style="position: relative;">
                                 <div class="font-weight-light title text-xs-center mb-2">
                                     <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{addReel.reel_price}}</h3>
+                                    <h4 class="text-xs-center ">size {{addReel.reel_size}}</h4>
                                 </div>
                             </v-card-text>
                         </v-card>
@@ -50,6 +52,7 @@
                             <v-card-text class="pt-4" style="position: relative;">
                                 <div class="font-weight-light title text-xs-center mb-2">
                                     <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{addLine.line_price}}</h3>
+                                    <h4 class="text-xs-center ">size {{addLine.line_size}}</h4>
                                 </div>
                             </v-card-text>
                         </v-card>
@@ -67,6 +70,7 @@
                             <v-card-text class="pt-4" style="position: relative;">
                                 <div class="font-weight-light title text-xs-center mb-2">
                                     <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{addHook.hook_price}}</h3>
+                                    <h4 class=" text-xs-center ">size {{addHook.hook_size}}</h4>
                                 </div>
                             </v-card-text>
                         </v-card>
@@ -78,19 +82,19 @@
         <v-flex sx6 md6>
             <div class="small">
                 <line-chart :chart-data="datacollection" width="750px"></line-chart>
-            
+
             </div>
             <v-timeline>
                 <v-timeline-item color="red lighten-2" small>
                     <v-card class="elevation-2">
                         <v-card-title class="title">Fish Weight</v-card-title>
                         <v-card-text>
-                            {{addLine.line_size*0.4}} kg.
+                            {{addLine.line_size*0.45}} kg.
                         </v-card-text>
                     </v-card>
                 </v-timeline-item>
                 <v-timeline-item color="red lighten-2" small>
-                    <v-card class="elevation-2" >
+                    <v-card class="elevation-2">
                         <v-card-title class="title">Popular for fish type</v-card-title>
                         <v-card-text>
                             <div v-if="addReel.reel_size <= 1000">
@@ -129,7 +133,7 @@
         </v-flex>
     </v-layout>
     <div class="text-xs-center ">
-        <v-btn @click="saveSpec(userData.id,addRod.id,addReel.id,addLine.id,addHook.id)" round color="error">Save To Invoice</v-btn>
+        <v-btn @click="saveSpec(userData.id,addRod.id,addReel.id,addLine.id,addHook.id)" round color="error">SAVE</v-btn>
     </div>
 </v-container>
 </template>
@@ -161,23 +165,14 @@ export default {
             typefish5000: 'Snapper , Morwong , Tailor , Mangrove Jack , Cod , Bone Fish , Barramundi , Mulloway',
             typefish7000: 'Snapper , Morwong , Tailor , Cod , Mulloway , Aust Salmon , Kingfish , Samson Fish , Mulloway',
             typefish8000: 'Snapper , Morwong , Kingfish , Mulloway , Small Sharks , Large Mackerel , Mahi Mahi , Small Tuna',
-            UL: 1,
-            L: 2,
-            M: 3,
-            ML: 4,
-            MH: 5,
-            H: 7,
-            EH: 9,
-            UH: 10,
-          
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
     async mounted() {
         /**** Call loading methods*/
-       this.fillData();
-       this.load();
         
+        this.load();
+
     },
     /*-------------------------Run Methods when Start Routed------------------------------------------*/
     async beforeRouteEnter(to, from, next) {
@@ -187,6 +182,7 @@ export default {
     computed: {
         ...sync('user/*'),
         ...sync('calculate/*'),
+        ...sync('spec/*'),
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
@@ -199,13 +195,14 @@ export default {
                 'rod_id': rod
             }
             await this.storeSpec(data);
-            await this.$router.replace('/Invoice');
+            await this.$router.replace('/spechistory');
         },
         ...call('user/*'),
         ...call('calculate/*'),
+        ...call('spec/*'),
         /******* Methods default run ******/
         async load() {
-       
+
         }
     },
 }

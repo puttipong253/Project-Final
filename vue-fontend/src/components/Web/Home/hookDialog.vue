@@ -4,7 +4,8 @@
     <v-dialog v-model="hookDialog"  persistent :overlay="false" max-width="500px" transition="dialog-transition">
         <v-card>
             <v-toolbar dark color="primary">
-                <v-toolbar-title>Add Hook</v-toolbar-title>
+                <v-toolbar-title v-if="!hookForm.id">Add Hook</v-toolbar-title>
+                <v-toolbar-title v-else>Update Hook</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-items>
                     <v-btn dark flat @click="hookDialogSwitch(false)" icon>
@@ -59,7 +60,7 @@ import {
 } from "vuex-pathify";
 
 export default {
-    name: 'Root',
+    name: 'hookdialog',
     /*-------------------------Load Component---------------------------------------*/
     components: {
 

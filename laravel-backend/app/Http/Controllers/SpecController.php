@@ -48,11 +48,12 @@ class SpecController extends Controller
     public function show($id)
     {
         return Spec::where('user_id',$id)
+  
         ->join('fishing_hooks','specs.hook_id','fishing_hooks.id')
         ->join('fishing_lines','specs.line_id','fishing_lines.id')
         ->join('fishing_reels','specs.reel_id','fishing_reels.id')
         ->join('fishing_rods','specs.rod_id','fishing_rods.id') 
-        ->select('fishing_hooks.*','fishing_lines.*','fishing_reels.*','fishing_rods.*')
+        ->select('fishing_hooks.*','fishing_lines.*','fishing_reels.*','fishing_rods.*','specs.*')
         ->get();
     }
 

@@ -3,28 +3,18 @@
     <v-container fluid grid-list-md>
         <v-layout row wrap>
             <v-flex md12>
-                <v-card height="500px" color="red">
-                    <v-parallax :src="require('@/assets/home_24.jpg')">
-                        <div class="text-xs-center display-3 mb-5">
+                <v-card height="570px">
+                    <v-img :src="require('@/assets/home_24.jpg')">
+                        <div class="text">
                             Welcome to BuildSpec
                         </div>
-                    </v-parallax>
-                </v-card>
-            </v-flex>
-            <v-flex md5>
-                <v-card height="500px" color="light-green accent-3">
-                    <v-parallax :src="require('@/assets/home_11.jpg')">
-
-                    </v-parallax>
-                </v-card>
-            </v-flex>
-            <v-flex md7>
-                <v-card height="500px" color="blue">
-                    <v-parallax :src="require('@/assets/home_22.jpg')">
-                        <div class="text-xs-center">
-                            <h1>BuildSpec Fishing Tools</h1>
+                        <div class="text2">
+                            BuildSpec for Fishing
+                        </div><br>
+                        <div v-if="userData.id" class="text-xs-center">
+                            <v-btn class="blue-grey darken-1 white--text" onclick="window.location.href='/buildspec';">BuildSpec</v-btn>
                         </div>
-                    </v-parallax>
+                    </v-img>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -33,6 +23,11 @@
 </template>
 
 <script>
+import {
+    get,
+    sync,
+    call
+} from "vuex-pathify";
 export default {
     components: {
 
@@ -47,12 +42,28 @@ export default {
                 },
             ]
         }
-    }
+    },
+    computed: {
+        ...sync('user/*')
+    },
 }
 </script>
 
 <style>
 .bg-color {
     background: #757575 !important;
+}
+
+.text {
+    margin-top: 150px;
+    color: #FFF176;
+    font-size: 80px;
+    text-align: center;
+}
+
+.text2 {
+    color: #FFF176;
+    font-size: 50px;
+    text-align: center;
 }
 </style>

@@ -7,7 +7,10 @@ import store from './vuex';
 const state = {
     rodList:[],
     rodDialog:false,
-    rodForm:{},
+    rodForm:{
+        rod_power:0
+    },
+   
 }
 const getters = {
 
@@ -92,6 +95,15 @@ let load = await axios.get('/api/rod')
           });}
         actions.getRodList();
        
+    },
+
+    async searchingRod(context,params){
+        let load = await axios.get('/api/searchRod?search='+params )
+    .then((r) => {
+        state.rodList = r.data;
+    }).catch((e) => {
+        console.log(e);
+    });
     }
 
 

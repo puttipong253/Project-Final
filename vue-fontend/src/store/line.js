@@ -99,7 +99,15 @@ let load = await axios.get('/api/line')
         });}
         actions.getLineList();
        
-    }
+    },
+    async searchingLine(context,params){
+        let load = await axios.get('/api/searchLine?search='+params )
+    .then((r) => {
+        state.lineList = r.data;
+    }).catch((e) => {
+        console.log(e);
+    });
+}
 
 
 

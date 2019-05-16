@@ -1,86 +1,52 @@
 <!----------Make By YourName---------------->
  <template>
 <v-container fluid grid-list-md>
+    <VTextField prepend-icon="search" @change="Hooksearching()" v-model="search" label="Search" />
     <v-layout row wrap>
-        <div v-for="hook in hookList" :key="hook.id">
-            <div v-if="sizeLine > 0  && sizeLine <= 20 ">
-                <v-flex v-if="hook.hook_size > 0  && hook.hook_size <= 10 ">
-                    <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
-                            <div class="font-weight-light title text-xs-center mb-2">
-                                <br>
-                                {{hook.hook_name}}
-                            </div>
-                            <v-img :aspect-ratio="16/14" :src="hook.hook_image">
-                            </v-img>
-                            <v-card-text class="pt-4" style="position: relative;">
-                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" fab right top>
+        <v-flex v-for="hook in hookList" :key="hook.id" md2>
+
+            <v-hover>
+                <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" >
+                    <div class="font-weight-light title text-xs-center mb-2">
+                        <br>
+                        {{hook.hook_name}}
+                    </div>
+                    <v-img :aspect-ratio="16/14" :src="hook.hook_image">
+                    </v-img>
+                    <v-card-text class="pt-4" style="position: relative;">
+                        <div v-if="sizeLine > 0  && sizeLine <= 20 ">
+                            <div v-if="hook.hook_size > 0  && hook.hook_size <= 10 ">
+                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" small fab right top>
                                     <v-icon>add</v-icon>
                                 </v-btn>
-                                <v-btn @click.stop="showHooksData(hook)" absolute color="red accent-2" class="white--text z-index" small fab left top>
-                                    <v-icon>search</v-icon>
-                                </v-btn>
-                                <div class="font-weight-light title text-xs-center mb-2">
-                                    <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{hook.hook_price}}</h3>
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </v-hover>
-                </v-flex>
-            </div>
-            <div v-if="sizeLine > 20  && sizeLine <= 40 ">
-                <v-flex v-if="hook.hook_size > 10 && hook.hook_size <= 15 ">
-                    <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
-                            <div class="font-weight-light title text-xs-center mb-2">
-                                <br>
-                                {{hook.hook_name}}
                             </div>
-                            <v-img :aspect-ratio="16/14" :src="hook.hook_image">
-                            </v-img>
-                            <v-card-text class="pt-4" style="position: relative;">
-                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" fab right top>
+                        </div>
+                        <div v-if="sizeLine > 20  && sizeLine <= 40 ">
+                            <div v-if="hook.hook_size > 10 && hook.hook_size <= 15 ">
+                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" small fab right top>
                                     <v-icon>add</v-icon>
                                 </v-btn>
-                                <v-btn @click.stop="showHooksData(hook)" absolute color="red accent-2" class="white--text z-index" small fab left top>
-                                    <v-icon>search</v-icon>
-                                </v-btn>
-                                <div class="font-weight-light title text-xs-center mb-2">
-                                    <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{hook.hook_price}}</h3>
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </v-hover>
-                </v-flex>
-            </div>
-            <div v-if="sizeLine > 40 ">
-                <v-flex v-if="hook.hook_size > 15 ">
-                    <v-hover>
-                        <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
-                            <div class="font-weight-light title text-xs-center mb-2">
-                                <br>
-                                {{hook.hook_name}}
                             </div>
-                            <v-img :aspect-ratio="16/14" :src="hook.hook_image">
-                            </v-img>
-                            <v-card-text class="pt-4" style="position: relative;">
-                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" fab right top>
+                        </div>
+                        <div v-if="sizeLine > 40 ">
+                            <div v-if="hook.hook_size > 15 ">
+                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" small fab right top>
                                     <v-icon>add</v-icon>
                                 </v-btn>
-                                <v-btn @click.stop="showHooksData(hook)" absolute color="red accent-2" class="white--text z-index" small fab left top>
-                                    <v-icon>search</v-icon>
-                                </v-btn>
-                                <div class="font-weight-light title text-xs-center mb-2">
-                                    <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{hook.hook_price}}</h3>
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </v-hover>
-                </v-flex>
-            </div>
-        </div>
+                            </div>
+                        </div>
+                        <v-btn @click.stop="showHooksData(hook)" absolute color="grey" class="white--text z-index" small fab left top>
+                            <v-icon>search</v-icon>
+                        </v-btn>
+                        <div class="font-weight-light title text-xs-center mb-2">
+                            <h3 class="headline font-weight-light orange--text text-xs-center ">฿ {{hook.hook_price}}</h3>
+                        </div>
+                    </v-card-text>
+                </v-card>
+            </v-hover>
+        </v-flex>
     </v-layout>
-        <div>
+    <div>
         <v-dialog v-model="dialog4" width="300px" persistent>
             <div class="text-xs-center">
                 <v-card class="grey lighten-2">
@@ -125,17 +91,9 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
+            search:'',
             hookData: {},
             dialog4: false,
-            UL: 1,
-            L: 2,
-            M: 3,
-            ML: 4,
-            MH: 5,
-            H: 7,
-            EH: 9,
-            UH: 10,
-         
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -160,11 +118,18 @@ export default {
             this.dialog4 = true;
         },
         storeHooks(data) {
-            let check = confirm('คุณแน่ใจใช่ไหมที่จะเลือกสินค้าชิ้นนี้');
+            let check = confirm('Are you sure you want to select this product?');
             if (check) {
                 this.addHook = data;
                 this.fillData();
                 this.e1++;
+            }
+        },
+        async Hooksearching() {
+            if (this.search != '') {
+                await this.searchingHook(this.search)
+            } else {
+                await this.getHookList();
             }
         },
         ...call('hook/*'),

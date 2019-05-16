@@ -15,6 +15,16 @@ class ReelController extends Controller
     {
         return FishingReel::get();
     }
+    public function search()
+    {
+        $search = $_GET['search'];
+        $reel = \DB::table('fishing_reels')->where('reel_name','like','%'.$search.'%')
+                                        ->Orwhere('reel_type','like','%'.$search.'%')
+                                        ->Orwhere('reel_price','<=',$search)
+                                        ->get();
+                                      
+        return $reel;
+    }
 
     /**
      * Show the form for creating a new resource.

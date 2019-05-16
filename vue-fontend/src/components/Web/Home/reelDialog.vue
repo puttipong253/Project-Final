@@ -4,7 +4,8 @@
     <v-dialog v-model="reelDialog" persistent :overlay="false" max-width="500px" transition="dialog-transition">
         <v-card>
             <v-toolbar dark color="primary">
-                <v-toolbar-title>Add Reel</v-toolbar-title>
+                <v-toolbar-title v-if="!reelForm.id">Add Reel</v-toolbar-title>
+                <v-toolbar-title v-else>Update Reel</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-items>
                     <v-btn dark flat @click="reelDialogSwitch(false)" icon>
@@ -56,7 +57,7 @@ import {
     call
 } from "vuex-pathify";
 export default {
-    name: 'Root',
+    name: 'reeldialog',
     /*-------------------------Load Component---------------------------------------*/
     components: {
 

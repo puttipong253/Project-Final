@@ -38,7 +38,7 @@
                     <h3>Name : {{rodData.rod_name}}</h3>
                     <h3>Type : {{rodData.rod_type}}</h3>
                     <h3>Length : {{rodData.rod_length}} ft.</h3>
-                    <h3>Power : {{rodData.rod_power}}</h3>
+                    <h3>Power : {{rangeSpaec}}</h3>
                     <h3>LineWeight : {{rodData.rod_line}} g.</h3>
                     <h3>Brand : {{rodData.rod_brand}}</h3>
                     <h3>Color : {{rodData.rod_color}}</h3>
@@ -90,14 +90,17 @@ export default {
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed: {
         ...sync('rod/*'),
+        ...sync('calculate/*'),
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
         showRodsData(data){
             this.rodData = data;
+            this.checkSpec(data.rod_power)
             this.dialog = true;
         },
         ...call('rod/*'),
+        ...call('calculate/*'),
         /******* Methods default run ******/
         async load() {
             await this.getRodList();

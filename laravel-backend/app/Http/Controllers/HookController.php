@@ -39,7 +39,16 @@ class HookController extends Controller
         $hook->fill($request->all());
         $hook->save(); 
     }
-
+    public function search()
+    {
+        $search = $_GET['search'];
+        $hook = \DB::table('fishing_hooks')->where('hook_name','like','%'.$search.'%')
+                                        ->Orwhere('hook_type','like','%'.$search.'%')
+                                        ->Orwhere('hook_price','<=',$search)
+                                        ->get();
+                                      
+        return $hook;
+    }
     /**
      * Display the specified resource.
      *

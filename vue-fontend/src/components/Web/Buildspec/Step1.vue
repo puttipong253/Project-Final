@@ -1,12 +1,16 @@
 <!----------Make By YourName---------------->
  <template>
- 
 <v-container fluid grid-list-md>
+        <VTextField
+        prepend-icon="search"
+        @change="Rodsearching()"
+                v-model="search"
+                label="Search"/>
     <v-layout row wrap>
-        <div v-for="rod in rodList" :key="rod.id">
-            <v-flex>
+            
+            <v-flex v-for="rod in rodList" :key="rod.id" md2>
                 <v-hover>
-                    <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" width="212px">
+                    <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
                         <div class="font-weight-light title text-xs-center mb-2">
                             <br>
                             {{rod.rod_name}}
@@ -14,10 +18,10 @@
                         <v-img :aspect-ratio="16/14" :src="rod.rod_image">
                         </v-img>
                         <v-card-text class="pt-4" style="position: relative;">
-                            <v-btn @click="storeRods(rod)" absolute color="orange" class="white--text z-index" fab right top>
+                            <v-btn @click="storeRods(rod)" absolute color="orange" class="white--text z-index" fab small right top>
                                 <v-icon>add</v-icon>
                             </v-btn>
-                            <v-btn @click.stop="showRodsData(rod)" absolute color="red accent-2" class="white--text z-index" small fab left top>
+                            <v-btn @click.stop="showRodsData(rod)" absolute color="grey" class="white--text z-index" small fab left top>
                                 <v-icon>search</v-icon>
                             </v-btn>
                             <div class="font-weight-light title text-xs-center mb-2">
@@ -27,9 +31,9 @@
                     </v-card>
                 </v-hover>
             </v-flex>
-        </div>
+        
     </v-layout>
-        <div>
+    <div>
         <v-dialog v-model="dialog1" width="300px" persistent>
             <div class="text-xs-center">
                 <v-card class="grey lighten-2">
@@ -55,16 +59,19 @@
         </v-dialog>
     </div>
 </v-container>
-
 </template>
 
 <script>
-	import { get,sync,call } from "vuex-pathify"; 
+import {
+    get,
+    sync,
+    call
+} from "vuex-pathify";
 export default {
     name: 'Step1',
     /*-------------------------Load Component---------------------------------------*/
     components: {
-            
+
     },
     /*-------------------------Set Component---------------------------------------*/
     props: {
@@ -73,17 +80,10 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
+            search:'',
             rodData: {},
             dialog1: false,
-            UL: 1,
-            L: 2,
-            M: 3,
-            ML: 4,
-            MH: 5,
-            H: 7,
-            EH: 9,
-            UH: 10,
-          
+      
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -105,24 +105,32 @@ export default {
         ...call('rod/*'),
         ...call('calculate/*'),
 
+      
         showRodsData(data) {
             this.rodData = data;
             this.checkSpec(data.rod_power)
             this.dialog1 = true;
         },
         storeRods(data) {
-            let check = confirm('คุณแน่ใจใช่ไหมที่จะเลือกสินค้าชิ้นนี้');
+            let check = confirm('Are you sure you want to select this product?');
             if (check) {
                 this.typeRod = data.rod_type
-                this.rodScore = data.rod_power
+                this.rodPower = data.rod_power
                 this.addRod = data;
                 this.e1++;
             }
         },
-        
+        async Rodsearching(){
+            if(this.search != ''){ 
+            await this.searchingRod(this.search)
+            }else{
+                     await this.getRodList(); 
+            }
+        }, 
+
         /******* Methods default run ******/
         async load() {
-        await this.getRodList();
+            await this.getRodList(); 
         }
     },
 }
@@ -150,8 +158,9 @@ export default {
 .v-dialog {
     background: #424242 !important;
 }
+
 .small {
     max-width: 600px;
-    
+
 }
 </style>

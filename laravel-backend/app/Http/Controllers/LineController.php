@@ -38,7 +38,16 @@ class LineController extends Controller
         $line->fill($request->all());
         $line->save(); 
     }
-
+    public function search()
+    {
+        $search = $_GET['search'];
+        $line = \DB::table('fishing_lines')->where('line_name','like','%'.$search.'%')
+                                        ->Orwhere('line_type','like','%'.$search.'%')
+                                        ->Orwhere('line_price','<=',$search)
+                                        ->get();
+                                      
+        return $line;
+    }
     /**
      * Display the specified resource.
      *
