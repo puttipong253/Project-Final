@@ -38,7 +38,7 @@ export default {
                     src: '/assets/home_1.jpg'
                 },
                 {
-                    src: '..//assets/home_2.jpg'
+                    src: './assets/home_2.jpg'
                 },
             ]
         }

@@ -6,6 +6,7 @@ import store from './vuex';
 
 const state = {
     lineList:[],
+    lineFilterList:[],
     lineDialog:false,
     lineForm:{},
     
@@ -107,6 +108,20 @@ let load = await axios.get('/api/line')
     }).catch((e) => {
         console.log(e);
     });
+},
+async filterLine(context,params) {
+    await actions.getLineList();
+    let output = []
+    for (let i = 0; i < state.lineList.length; i++) {
+        if (params <= 4000 && state.lineList[i].line_size <= 20) {
+            output.push(state.lineList[i])
+        }else if ((params > 4000 && params <= 7000)&&(state.lineList[i].line_size > 20 &&state.lineList[i].line_size <= 30)) {
+            output.push(state.lineList[i])
+        }else if ((params > 7000)&&(state.lineList[i].line_size > 30)) {
+            output.push(state.lineList[i])
+        }
+    }
+    state.lineFilterList = output; 
 }
 
 

@@ -80,8 +80,8 @@
         </v-flex>
 
         <v-flex sx6 md6>
-            <div class="small">
-                <line-chart :chart-data="datacollection" width="750px"></line-chart>
+            <div class="small" >
+                <line-chart :chartData="datacollection" :width="750"></line-chart>
 
             </div>
             <v-timeline>

@@ -6,6 +6,7 @@ import store from './vuex';
 
 const state = {
     reelList:[],
+    reelFilterList:[],
     reelDialog:false,
     reelForm:{},
     reel_image:'',
@@ -105,6 +106,17 @@ let load = await axios.get('/api/reel')
     }).catch((e) => {
         console.log(e);
     });
+},
+
+async filterReel(context,params) {
+    await actions.getReelList();
+    let output = []
+    for (let i = 0; i < state.reelList.length; i++) {
+        if (state.reelList[i].reel_type == params) {
+            output.push(state.reelList[i])
+        }
+    }
+    state.reelFilterList = output; 
 }
     
 

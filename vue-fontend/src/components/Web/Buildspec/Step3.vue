@@ -1,13 +1,9 @@
 <!----------Make By YourName---------------->
  <template>
 <v-container fluid grid-list-md>
-    <VTextField
-        prepend-icon="search"
-        @change="Linesearching()"
-                v-model="search"
-                label="Search"/>
+    <VTextField prepend-icon="search" @change="Linesearching()" v-model="search" label="Search" />
     <v-layout row wrap>
-        <v-flex v-for="line in lineList" :key="line.id" md2>
+        <v-flex v-for="line in lineFilterList" :key="line.id" md2>
             <v-hover>
                 <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
                     <div class="font-weight-light title text-xs-center mb-2">
@@ -17,27 +13,11 @@
                     <v-img :aspect-ratio="16/14" :src="line.line_image">
                     </v-img>
                     <v-card-text class="pt-4" style="position: relative;">
-                        <div v-if="sizeReel <= 2500 ">
-                            <div v-if=" line.line_size <= 12 ">
-                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" small fab right top>
-                                    <v-icon>add</v-icon>
-                                </v-btn>
-                            </div>
-                        </div>
-                        <div v-if="sizeReel > 2500  && sizeReel <= 4000">
-                            <div v-if=" line.line_size > 12 && line.line_size  <= 30 ">
-                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" small fab right top>
-                                    <v-icon>add</v-icon>
-                                </v-btn>
-                            </div>
-                        </div>
-                        <div v-if="sizeReel > 4000  && sizeReel <= 10000">
-                            <div v-if=" line.line_size > 30  ">
-                                <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" small fab right top>
-                                    <v-icon>add</v-icon>
-                                </v-btn>
-                            </div>
-                        </div>
+
+                        <v-btn @click="storeLines(line)" absolute color="orange" class="white--text z-index" small fab right top>
+                            <v-icon>add</v-icon>
+                        </v-btn>
+
                         <v-btn @click.stop="showLinesData(line)" absolute color="grey" class="white--text z-index" small fab left top>
                             <v-icon>search</v-icon>
                         </v-btn>
@@ -94,7 +74,7 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
-            search:'',
+            search: '',
             lineData: {},
             dialog3: false,
         };
@@ -110,11 +90,16 @@ export default {
     },
     /*-------------------------Vuex Methods and Couputed Methods------------------------------------------*/
     computed: {
-        ...sync('line/*'),
         ...sync('calculate/*'),
+        ...sync('line/*'),
+        
+
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
+        ...call('line/*'),
+        ...call('hook/*'),
+        ...call('calculate/*'),
         showLinesData(data) {
             this.lineData = data;
             this.dialog3 = true;
@@ -123,6 +108,7 @@ export default {
             let check = confirm('Are you sure you want to select this product?');
             if (check) {
                 this.sizeLine = data.line_size
+                this.filterHook(data.line_size);
                 this.addLine = data;
                 this.e1++;
             }
@@ -134,8 +120,7 @@ export default {
                 await this.getLineList();
             }
         },
-        ...call('line/*'),
-        ...call('calculate/*'),
+        
         /******* Methods default run ******/
         async load() {
             await this.getLineList();

@@ -7,9 +7,7 @@ import store from './vuex';
 const state = {
     rodList:[],
     rodDialog:false,
-    rodForm:{
-        rod_power:0
-    },
+    rodForm:{},
    
 }
 const getters = {

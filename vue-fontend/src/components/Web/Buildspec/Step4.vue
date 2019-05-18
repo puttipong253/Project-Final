@@ -3,10 +3,10 @@
 <v-container fluid grid-list-md>
     <VTextField prepend-icon="search" @change="Hooksearching()" v-model="search" label="Search" />
     <v-layout row wrap>
-        <v-flex v-for="hook in hookList" :key="hook.id" md2>
+        <v-flex v-for="hook in hookFilterList" :key="hook.id" md2>
 
             <v-hover>
-                <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3" >
+                <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
                     <div class="font-weight-light title text-xs-center mb-2">
                         <br>
                         {{hook.hook_name}}
@@ -14,27 +14,9 @@
                     <v-img :aspect-ratio="16/14" :src="hook.hook_image">
                     </v-img>
                     <v-card-text class="pt-4" style="position: relative;">
-                        <div v-if="sizeLine > 0  && sizeLine <= 20 ">
-                            <div v-if="hook.hook_size > 0  && hook.hook_size <= 10 ">
-                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" small fab right top>
-                                    <v-icon>add</v-icon>
-                                </v-btn>
-                            </div>
-                        </div>
-                        <div v-if="sizeLine > 20  && sizeLine <= 40 ">
-                            <div v-if="hook.hook_size > 10 && hook.hook_size <= 15 ">
-                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" small fab right top>
-                                    <v-icon>add</v-icon>
-                                </v-btn>
-                            </div>
-                        </div>
-                        <div v-if="sizeLine > 40 ">
-                            <div v-if="hook.hook_size > 15 ">
-                                <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" small fab right top>
-                                    <v-icon>add</v-icon>
-                                </v-btn>
-                            </div>
-                        </div>
+                        <v-btn @click="storeHooks(hook)" absolute color="orange" class="white--text z-index" small fab right top>
+                            <v-icon>add</v-icon>
+                        </v-btn>
                         <v-btn @click.stop="showHooksData(hook)" absolute color="grey" class="white--text z-index" small fab left top>
                             <v-icon>search</v-icon>
                         </v-btn>
@@ -91,7 +73,7 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
-            search:'',
+            search: '',
             hookData: {},
             dialog4: false,
         };

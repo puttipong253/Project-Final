@@ -4,7 +4,6 @@ import { make } from "vuex-pathify";
 
 const state = {
     e1:0,
-    typeRod: '',
     sizeReel:0,
     sizeLine:0,
     rodPower:0,
@@ -23,7 +22,6 @@ const mutations = make.mutations(state);
 const actions = {
 
   
-
   async fillData() {
     state.datacollection = {
         labels: ['Rod', 'Reel', 'Line'],

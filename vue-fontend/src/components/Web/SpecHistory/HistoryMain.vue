@@ -2,7 +2,7 @@
  <template>
 <div class="pd-40">
     <v-card-title>
-        <h2>SpecHistory</h2> 
+        <h2>SpecHistory</h2>
         <v-spacer></v-spacer>
         <v-text-field v-if="print" v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
     </v-card-title>
@@ -43,70 +43,83 @@
                 {{ props.item.rod_price }} $
             </td>
             <td class="text-xs-center">
-                <v-btn @click="printing(props.item)" small color="primary"><v-icon>print</v-icon>&nbsp;Print</v-btn>
-                <v-btn @click="deleteSpec( props.item.id )" small color="error"><v-icon>delete_outline</v-icon>Delete</v-btn>
+                <v-btn @click="printing(props.item)" small color="primary">
+                    <v-icon>print</v-icon>&nbsp;Print
+                </v-btn>
+                <v-btn @click="deleteSpec( props.item.id )" small color="error">
+                    <v-icon>delete_outline</v-icon>Delete
+                </v-btn>
             </td>
         </template>
     </v-data-table>
-    <v-dialog v-model="dialogPrint" scrollable fullscreen persistent :overlay="false" max-width="500px" transition="dialog-transition">
-        <VCard>
-            <v-container row wrap>
+    <v-dialog v-model="dialogPrint" scrollable fullscreen persistent :overlay="false"  transition="dialog-transition">
+        <VCard height="850">
+            <v-container row >
+                <h1 class="fs26"><b>FISHING SPEC</b></h1><h1 class="fs16 text-xs-right"><b>Spec ID :</b> {{printData.id}}</h1>
                 <center>
-                    <h1 class="fs26"><b>Purchase Order</b></h1>
+                    <h2 class="fs26">Purchase Order</h2>
                 </center>
-                <hr>
-                <h1 class="fs16"><b>UserName :</b> {{userData.name}}</h1>
-                <h1 class="fs16"><b>Order Number :</b> {{printData.id}}</h1>
-                <h2 class="fs16"><b>Spec Date :</b> {{ printData.created_at}}</h2>
+                <h1 class="fs17 text-xs-left"><b>Customer Detail</b></h1>
+                <h1 class="fs16 text-xs-left"><b>Name :</b> {{userData.name}} &nbsp; <b>Surname :</b> {{userData.surname}}</h1>
+                <h1 class="fs16 text-xs-left"><b>Spec Date :</b> {{ printData.created_at}}</h1>
+
                 <table class="w3-table-all" height="300px">
                     <thead>
-                        <tr class="w3-light-grey text-xs-center">
-                            <th class="text-xs-center">ProductID</th>
-                            <th class="text-xs-center">ProductType</th>
-                            <th class="text-xs-center">ProductName</th>
-                            <th class="text-xs-center">ProductPrice</th>
+                        <tr class="grey lighten-2">
+                            <th class="text-xs-left ">NUMBER</th>
+                            <th class="text-xs-left">ITEM DESCRIPTION</th>
+                            <th class="text-xs-right">QTY</th>
+                            <th class="text-xs-right">UNIT</th>
+                            <th class="text-xs-right">UNIT PRICE</th>
+                            <th class="text-xs-right">TOTAL PRICE</th>
                         </tr>
                     </thead>
                     <tr>
-                        <td class="text-xs-center">{{ printData.rod_id }}</td>
-                        <td class="text-xs-center">Fishing Rod</td>
-                        <td class="text-xs-center">{{ printData.rod_name }}</td>
-                        <td class="text-xs-center"> {{ printData.rod_price }} $</td>
+                        <td class="text-xs-left white">1</td>
+                        <td class="text-xs-left white">{{ printData.rod_name }} {{printData.rod_type }} Rod</td>
+                        <td class="text-xs-right white">1</td>
+                        <td class="text-xs-right white">rod</td>
+                        <td class="text-xs-right white"> {{ printData.rod_price }} ฿</td>
+                        <td class="text-xs-right white"> {{ printData.rod_price }} ฿</td>
                     </tr>
                     <tr>
-                        <td class="text-xs-center">{{ printData.reel_id }}</td>
-                        <td class="text-xs-center">Fishing Reel</td>
-                        <td class="text-xs-center">{{ printData.reel_name }}</td>
-                        <td class="text-xs-center"> {{ printData.reel_price }} $</td>
+                        <td class="text-xs-left white">2</td>
+                        <td class="text-xs-left white">{{ printData.reel_name }} {{printData.reel_type }} Reel</td>
+                        <td class="text-xs-right white">1</td>
+                        <td class="text-xs-right white">piece</td>
+                        <td class="text-xs-right white"> {{ printData.reel_price }} ฿</td>
+                        <td class="text-xs-right white"> {{ printData.reel_price }} ฿</td>
                     </tr>
                     <tr>
-                        <td class="text-xs-center">{{ printData.line_id }}</td>
-                        <td class="text-xs-center">Fishing Line</td>
-                        <td class="text-xs-center">{{ printData.line_name }}</td>
-                        <td class="text-xs-center"> {{ printData.line_price}} $</td>
+                        <td class="text-xs-left white">3</td>
+                        <td class="text-xs-left white">{{ printData.line_name }} {{printData.line_type }} </td>
+                        <td class="text-xs-right white">1</td>
+                        <td class="text-xs-right white">piece</td>
+                        <td class="text-xs-right white"> {{ printData.line_price }} ฿</td>
+                        <td class="text-xs-right white"> {{ printData.line_price }} ฿</td>
                     </tr>
                     <tr>
-                        <td class="text-xs-center">{{ printData.hook_id }}</td>
-                        <td class="text-xs-center">Fishing Hook</td>
-                        <td class="text-xs-center">{{ printData.hook_name }}</td>
-                        <td class="text-xs-center"> {{ printData.hook_price}} $</td>
+                        <td class="text-xs-left white">4</td>
+                        <td class="text-xs-left white">{{ printData.hook_name }} {{printData.hook_type }} </td>
+                        <td class="text-xs-right white">1</td>
+                        <td class="text-xs-right white">pack</td>
+                        <td class="text-xs-right white"> {{ printData.hook_price }} ฿</td>
+                        <td class="text-xs-right white"> {{ printData.hook_price }} ฿</td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="text-xs-right">SumPrice</td>
-                        <td class="text-xs-center"> {{ printData.rod_price+printData.reel_price+printData.line_price+printData.hook_price}} $</td>
-                    </tr>
-                </table>
+                    
+                </table><br><br>
+                <div class="text-xs-right ">
+                    
+                <b><U>Grand Total</U></b>  &nbsp;  {{ printData.rod_price+printData.reel_price+printData.line_price+printData.hook_price}} ฿
+                
+                </div>
             </v-container>
-            <v-btn @click="printOn()" color="primary"><v-icon>print</v-icon>&nbsp;Print</v-btn>
-            <v-btn @click="closeDialogPrint()" color="red" dark><v-icon>close</v-icon>close</v-btn>
+            <!-- <v-btn  @click="printOn()" color="primary">
+                <v-icon>print</v-icon>&nbsp;Print
+            </v-btn> -->
+            <v-btn  @click="closeDialogPrint()" color="red" dark>
+                <v-icon>close</v-icon>close
+            </v-btn>
         </VCard>
     </v-dialog>
 </div>
@@ -211,3 +224,4 @@ export default {
     },
 }
 </script>
+

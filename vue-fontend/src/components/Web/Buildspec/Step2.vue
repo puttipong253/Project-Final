@@ -3,8 +3,7 @@
 <v-container fluid grid-list-md>
     <VTextField prepend-icon="search" @change="Reelsearching()" v-model="search" label="Search" />
     <v-layout row wrap>
-        <v-flex v-for="reel in reelList" :key="reel.id" md2>
-
+        <v-flex v-for="reel in reelFilterList" :key="reel.id" md2>
             <v-hover>
                 <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" color="grey lighten-3">
                     <div class="font-weight-light title text-xs-center mb-2">
@@ -14,11 +13,11 @@
                     <v-img :aspect-ratio="16/14" :src="reel.reel_image">
                     </v-img>
                     <v-card-text class="pt-4" style="position: relative;">
-                        <div v-if="typeRod == reel.reel_type">
-                            <v-btn @click="storeReels(reel)" absolute color="orange" class="white--text z-index" fab small right top>
-                                <v-icon>add</v-icon>
-                            </v-btn>
-                        </div>
+
+                        <v-btn @click="storeReels(reel)" absolute color="orange" class="white--text z-index" fab small right top>
+                            <v-icon>add</v-icon>
+                        </v-btn>
+
                         <v-btn @click.stop="showReelsData(reel)" absolute color="grey" class="white--text z-index" small fab left top>
                             <v-icon>search</v-icon>
                         </v-btn>
@@ -95,9 +94,14 @@ export default {
     computed: {
         ...sync('reel/*'),
         ...sync('calculate/*'),
+
     },
     /*-------------------------Methods------------------------------------------*/
     methods: {
+        ...call('reel/*'),
+        ...call('line/*'),
+        ...call('calculate/*'),
+
         showReelsData(data) {
             this.reelData = data;
             this.dialog2 = true;
@@ -106,6 +110,7 @@ export default {
             let check = confirm('Are you sure you want to select this product?');
             if (check) {
                 this.sizeReel = data.reel_size
+                this.filterLine(data.reel_size);
                 this.addReel = data;
                 this.e1++;
             }
@@ -117,8 +122,7 @@ export default {
                 await this.getReelList();
             }
         },
-        ...call('reel/*'),
-        ...call('calculate/*'),
+
         /******* Methods default run ******/
         async load() {
             await this.getReelList();

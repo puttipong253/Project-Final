@@ -6,6 +6,7 @@ import store from './vuex';
 
 const state = {
     hookList:[],
+    hookFilterList:[],
     hookDialog:false,
     hookForm:{    },
 }
@@ -107,6 +108,20 @@ let load = await axios.get('/api/hook')
     }).catch((e) => {
         console.log(e);
     });
+},
+async filterHook(context,params) {
+    await actions.getHookList();
+    let output = []
+    for (let i = 0; i < state.hookList.length; i++) {
+        if (params <= 20 && state.hookList[i].hook_size <= 10) {
+            output.push(state.hookList[i])
+        } else if ((params > 20 && params <= 40) && (state.hookList[i].hook_size > 10 && state.hookList[i].hook_size <= 15)) {
+            output.push(state.hookList[i])
+        } else if ((params > 40) && (state.hookList[i].hook_size > 15)) {
+            output.push(state.hookList[i])
+        }
+    }
+    state.hookFilterList = output; 
 }
 
 
