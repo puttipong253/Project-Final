@@ -9,6 +9,7 @@ const state = {
     hookFilterList:[],
     hookDialog:false,
     hookForm:{    },
+    hookSearchSize:""
 }
 const getters = {
 
@@ -102,6 +103,14 @@ let load = await axios.get('/api/hook')
        
     },
     async searchingHook(context,params){
+        let load = await axios.get('/api/searchHook?search='+params+ "&size=" + state.hookSearchSize )
+    .then((r) => {
+        state.hookFilterList = r.data;
+    }).catch((e) => {
+        console.log(e);
+    });
+},
+    async searchingHook2(context,params){
         let load = await axios.get('/api/searchHook?search='+params )
     .then((r) => {
         state.hookList = r.data;
@@ -112,6 +121,7 @@ let load = await axios.get('/api/hook')
 async filterHook(context,params) {
     await actions.getHookList();
     let output = []
+    state.hookSearchSize = params;
     for (let i = 0; i < state.hookList.length; i++) {
         if (params <= 20 && state.hookList[i].hook_size <= 10) {
             output.push(state.hookList[i])

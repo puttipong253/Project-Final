@@ -108,11 +108,9 @@ export default {
             }
         },
         async Hooksearching() {
-            if (this.search != '') {
+  
                 await this.searchingHook(this.search)
-            } else {
-                await this.getHookList();
-            }
+
         },
         ...call('hook/*'),
         ...call('calculate/*'),

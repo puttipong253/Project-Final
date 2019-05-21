@@ -13,6 +13,7 @@ const state = {
     addRod:{},
     addData:[],
     rangeSpaec:'',
+    typeRod:'',
     datacollection: null
 };
 const getters = {};

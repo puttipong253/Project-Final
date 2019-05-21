@@ -21,7 +21,6 @@ class RodController extends Controller
     {
         $search = $_GET['search'];
         $rod = \DB::table('fishing_rods')->where('rod_name','like','%'.$search.'%')
-                                        ->Orwhere('rod_type','like','%'.$search.'%')
                                         ->Orwhere('rod_price','<=',$search)
                                         ->get();
                                       

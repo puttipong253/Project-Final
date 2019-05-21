@@ -114,11 +114,7 @@ export default {
             }
         },
         async Linesearching() {
-            if (this.search != '') {
                 await this.searchingLine(this.search)
-            } else {
-                await this.getLineList();
-            }
         },
         
         /******* Methods default run ******/

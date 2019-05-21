@@ -1,8 +1,8 @@
 <!----------Make By YourName---------------->
  <template>
 <v-card>
-    <v-layout row wrap>
         <v-container fluid grid-list-md>
+            <VTextField prepend-icon="search" @change="Reelsearching()" v-model="search" label="Search" />
             <v-layout row wrap>
                 <v-flex v-for="reel in reelList" :key="reel" md2>
                     <v-hover>
@@ -26,7 +26,7 @@
                 </v-flex>
             </v-layout>
         </v-container>
-    </v-layout>
+
      <div>
         <v-dialog v-model="dialog" width="300px" persistent>
             <div class="text-xs-center">
@@ -72,6 +72,7 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
+            search:'',
             reelData: {},
             dialog: false,
         };
@@ -96,6 +97,13 @@ export default {
             this.dialog = true;
         },
         ...call('reel/*'),
+        async Reelsearching() {
+            if (this.search != '') {
+                await this.searchingReel2(this.search)
+            } else {
+                await this.getReelList();
+            }
+        },
         /******* Methods default run ******/
         async load() {
             await this.getReelList();

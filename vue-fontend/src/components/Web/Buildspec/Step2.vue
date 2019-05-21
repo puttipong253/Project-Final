@@ -79,6 +79,7 @@ export default {
             search: '',
             reelData: {},
             dialog2: false,
+            
         };
     },
     /*-------------------------Run Methods when Start this Page------------------------------------------*/
@@ -116,11 +117,9 @@ export default {
             }
         },
         async Reelsearching() {
-            if (this.search != '') {
+           
                 await this.searchingReel(this.search)
-            } else {
-                await this.getReelList();
-            }
+            
         },
 
         /******* Methods default run ******/

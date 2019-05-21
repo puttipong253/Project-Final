@@ -1,8 +1,8 @@
 <!----------Make By YourName---------------->
  <template>
 <v-card>
-    <v-layout row wrap>
         <v-container fluid grid-list-md>
+            <VTextField prepend-icon="search" @change="Rodsearching()" v-model="search" label="Search" />
             <v-layout row wrap>
                 <v-flex v-for="rod in rodList" :key="rod" md2>
                     <v-hover>
@@ -26,7 +26,6 @@
                 </v-flex>
             </v-layout>
         </v-container>
-    </v-layout>
     <div>
         <v-dialog v-model="dialog" width="300px" persistent>
             <div class="text-xs-center">
@@ -74,6 +73,7 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
+            search:'',
             rodData: {},
             dialog: false,
         };
@@ -101,6 +101,13 @@ export default {
         },
         ...call('rod/*'),
         ...call('calculate/*'),
+        async Rodsearching() {
+            if (this.search != '') {
+                await this.searchingRod2(this.search)
+            } else {
+                await this.getRodList();
+            }
+        },
         /******* Methods default run ******/
         async load() {
             await this.getRodList();

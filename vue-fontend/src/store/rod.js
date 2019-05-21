@@ -102,6 +102,14 @@ let load = await axios.get('/api/rod')
     }).catch((e) => {
         console.log(e);
     });
+    },
+    async searchingRod2(context,params){
+        let load = await axios.get('/api/searchRod?search='+params )
+    .then((r) => {
+        state.rodList = r.data;
+    }).catch((e) => {
+        console.log(e);
+    });
     }
 
 

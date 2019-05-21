@@ -41,8 +41,18 @@ class LineController extends Controller
     public function search()
     {
         $search = $_GET['search'];
-        $line = \DB::table('fishing_lines')->where('line_name','like','%'.$search.'%')
-                                        ->Orwhere('line_type','like','%'.$search.'%')
+        $size = $_GET['size'];
+        $line = \DB::table('fishing_lines');
+        if($size <= 4000 ){
+            $line->where('line_size','<=',20);
+        }else if($size > 4000 && $size <= 7000){
+            $line->where('line_size','>',20)->where('line_size','<=',30);
+        }else if($size > 7000){
+            $line->where('line_size','>',30);
+        }else{
+            
+        }
+        $line = $line->where('line_name','like','%'.$search.'%')
                                         ->Orwhere('line_price','<=',$search)
                                         ->get();
                                       

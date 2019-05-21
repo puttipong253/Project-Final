@@ -9,7 +9,7 @@ const state = {
     lineFilterList:[],
     lineDialog:false,
     lineForm:{},
-    
+    lineSearchSize:""
 }
 const getters = {
 
@@ -102,16 +102,25 @@ let load = await axios.get('/api/line')
        
     },
     async searchingLine(context,params){
-        let load = await axios.get('/api/searchLine?search='+params )
+        let load = await axios.get('/api/searchLine?search='+params + "&size=" + state.lineSearchSize)
     .then((r) => {
-        state.lineList = r.data;
+        state.lineFilterList = r.data;
     }).catch((e) => {
         console.log(e);
     });
 },
+async searchingLine2(context,params){
+    let load = await axios.get('/api/searchLine?search='+params + "&size=" + state.lineSearchSize)
+.then((r) => {
+    state.lineList = r.data;
+}).catch((e) => {
+    console.log(e);
+});
+},
 async filterLine(context,params) {
     await actions.getLineList();
     let output = []
+    state.lineSearchSize = params;
     for (let i = 0; i < state.lineList.length; i++) {
         if (params <= 4000 && state.lineList[i].line_size <= 20) {
             output.push(state.lineList[i])

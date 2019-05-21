@@ -18,8 +18,10 @@ class ReelController extends Controller
     public function search()
     {
         $search = $_GET['search'];
-        $reel = \DB::table('fishing_reels')->where('reel_name','like','%'.$search.'%')
-                                        ->Orwhere('reel_type','like','%'.$search.'%')
+        $type = $_GET['type'];
+        $reel = \DB::table('fishing_reels')
+                                        ->where('reel_type',$type)
+                                        ->where('reel_name','like','%'.$search.'%')
                                         ->Orwhere('reel_price','<=',$search)
                                         ->get();
                                       

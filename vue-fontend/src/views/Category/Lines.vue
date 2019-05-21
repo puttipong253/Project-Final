@@ -2,6 +2,7 @@
  <template>
 <v-card>
         <v-container fluid grid-list-md>
+            <VTextField prepend-icon="search" @change="Linesearching()" v-model="search" label="Search" />
             <v-layout row wrap>
                 <v-flex v-for="line in lineList" :key="line" md2>
                     <v-hover>
@@ -70,6 +71,7 @@ export default {
     /*-------------------------DataVarible---------------------------------------*/
     data() {
         return {
+            search:'',
             lineData: {},
             dialog: false,
         };
@@ -94,6 +96,13 @@ export default {
             this.dialog = true;
         },
         ...call('line/*'),
+        async Linesearching() {
+            if (this.search != '') {
+                await this.searchingLine2(this.search)
+            } else {
+                await this.getLineList();
+            }
+        },
         /******* Methods default run ******/
         async load() {
             await this.getLineList();
