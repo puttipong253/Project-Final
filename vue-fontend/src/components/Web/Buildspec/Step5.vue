@@ -82,7 +82,6 @@
         <v-flex sx6 md6>
             <div class="small" >
                 <line-chart :chartData="datacollection" :width="750"></line-chart>
-
             </div>
             <v-timeline>
                 <v-timeline-item color="red lighten-2" small>
